@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace ProjektProgramowanie.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy RegisterView.xaml
+    /// Logika interakcji dla klasy LoginRegisterView.xaml
     /// </summary>
-    public partial class RegisterView : UserControl
+    public partial class LoginRegisterView : UserControl
     {
-        public RegisterView()
+        public LoginRegisterView()
         {
             InitializeComponent();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

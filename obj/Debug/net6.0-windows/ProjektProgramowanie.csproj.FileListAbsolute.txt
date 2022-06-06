@@ -19,3 +19,14 @@ C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\refin
 C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\ProjektProgramowanie.pdb
 C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\ProjektProgramowanie.genruntimeconfig.cache
 C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\ref\ProjektProgramowanie.dll
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\AccountSettingsView.g.cs
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\AddedMoviesListView.g.cs
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\ProfileView.g.cs
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\SearchMoviesListView.g.cs
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\AccountSettingsView.baml
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\AddedMoviesListView.baml
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\ProfileView.baml
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\SearchMoviesListView.baml
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\LoginRegisterView.g.cs
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\LoginRegisterView.baml

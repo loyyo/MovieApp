@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Maciek\source\repos\ProjektProgramowanie\App.xaml
-11407045341
+61854844709
 
-3-1233169557
+27812518509
 1942030480316
-MainWindow.xaml;
+MainWindow.xaml;Views\AccountSettingsView.xaml;Views\AddedMoviesListView.xaml;Views\LoginRegisterView.xaml;Views\ProfileView.xaml;Views\SearchMoviesListView.xaml;
 
 False
 
