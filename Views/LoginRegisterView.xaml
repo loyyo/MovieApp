@@ -56,7 +56,7 @@
                     <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Username/Email"/>
-                <TextBox Grid.Row="1"/>
+                <TextBox Text="" Grid.Row="1"/>
             </Grid>
 
             <Grid Grid.Row="2" Margin="20">
@@ -65,12 +65,13 @@
                     <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Password"/>
-                <TextBox Grid.Row="1"/>
+                <TextBox Text="" Grid.Row="1"/>
             </Grid>
 
             <Separator Grid.Row="2"/>
 
             <Button Grid.Row="3" Content="Login"
+                    Command="{Binding LoginCommand}"
                     Background="DodgerBlue"
                     Foreground="WhiteSmoke"
                     FontSize="20"
@@ -116,7 +117,7 @@
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Name"/>
-                    <TextBox Grid.Row="1"/>
+                    <TextBox Text="" Grid.Row="1"/>
                 </Grid>
                 <Grid Grid.Column="2">
                     <Grid.RowDefinitions>
@@ -124,7 +125,7 @@
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Surname"/>
-                    <TextBox Grid.Row="1"/>
+                    <TextBox Text="" Grid.Row="1"/>
                 </Grid>
             </Grid>
 
@@ -134,7 +135,7 @@
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Username"/>
-                <TextBox Grid.Row="1"/>
+                <TextBox Text="" Grid.Row="1"/>
             </Grid>
 
             <Grid Grid.Row="3" Margin="10">
@@ -143,7 +144,7 @@
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Email"/>
-                <TextBox Grid.Row="1"/>
+                <TextBox Text="" Grid.Row="1"/>
             </Grid>
 
             <Grid Grid.Row="4" Margin="10">
@@ -152,7 +153,7 @@
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Password"/>
-                <TextBox Grid.Row="1"/>
+                <TextBox Text="" Grid.Row="1"/>
             </Grid>
 
             <Grid Grid.Row="5" Margin="10">
@@ -168,6 +169,7 @@
                     </Grid.RowDefinitions>
                     <TextBlock Text="Birthday"/>
                     <DatePicker Grid.Row="1"
+                                SelectedDate=""
                                 Cursor="Arrow"
                                 ForceCursor="True"
                                 Focusable="False"/>
@@ -178,12 +180,13 @@
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Country"/>
-                    <TextBox Grid.Row="1"/>
+                    <TextBox Text="" Grid.Row="1"/>
                 </Grid>
             </Grid>
             <Separator Grid.Row="5"/>
 
             <Button Grid.Row="6" Content="Sign Up"
+                    Command="{Binding RegisterCommand}"
                     Background="DodgerBlue"
                     Foreground="WhiteSmoke"
                     FontSize="20"

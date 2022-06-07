@@ -46,7 +46,7 @@
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -61,7 +61,16 @@
                        VerticalAlignment="Center">
                         <TextBlock Text="One Punch Man"/>
             </TextBlock>
-            <Grid Grid.Row="1">
+            <TextBlock Grid.Row="1"
+                       Text="Description: "
+                       FontSize="30"
+                       Margin="10 10 10 10"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center">
+                        <TextBlock Text="He hits hard"/>
+            </TextBlock>
+
+            <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -92,7 +101,7 @@
                         <TextBlock Text="100 min"/>
                 </TextBlock>
             </Grid>
-            <TextBlock Grid.Row="2"
+            <TextBlock Grid.Row="3"
                        Text="Genres: "
                        FontSize="30"
                        Margin="10 10 10 10"
@@ -100,7 +109,7 @@
                        VerticalAlignment="Center">
                         <TextBlock Text="Action, Romance"/>
             </TextBlock>
-            <TextBlock Grid.Row="3"
+            <TextBlock Grid.Row="4"
                        Text="Directors: "
                        FontSize="30"
                        Margin="10 10 10 10"
@@ -108,7 +117,7 @@
                        VerticalAlignment="Center">
                         <TextBlock Text="John, John"/>
             </TextBlock>
-            <TextBlock Grid.Row="4"
+            <TextBlock Grid.Row="5"
                        Text="Actors: "
                        FontSize="30"
                        Margin="10 10 10 10"
@@ -116,37 +125,29 @@
                        VerticalAlignment="Center">
                         <TextBlock Text="Wick, Wick"/>
             </TextBlock>
-            <Grid Grid.Row="5">
+            <Grid Grid.Row="6">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1.25*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1.25*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="1"
+                <TextBlock Grid.Column="0"
                        Text="Your Rating: "
                        FontSize="30"
                        Margin="10 10 10 10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
                 </TextBlock>
-                <ComboBox Margin="20"  Grid.Column="2"/>
-            </Grid>
-            <Grid Grid.Row="6">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1.5*"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1.25*"/>
-                    <ColumnDefinition Width="1.5*"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="1"
+                <ComboBox Margin="20"  Grid.Column="1"/>
+                <Button Grid.Column="2"
                         FontSize="30"
                         Padding="10"
                         Content="Add to PTW"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         />
-                <Button Grid.Column="2"
+                <Button Grid.Column="3"
                         FontSize="30"
                         Padding="10"
                         Content="Add to Watched"

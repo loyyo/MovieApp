@@ -3,11 +3,34 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProjektProgramowanie" xmlns:views="clr-namespace:ProjektProgramowanie.Views"
+        xmlns:local="clr-namespace:ProjektProgramowanie"
+        xmlns:views="clr-namespace:ProjektProgramowanie.Views"
+        xmlns:vms="clr-namespace:ProjektProgramowanie.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="800" MinWidth="1200" Height="800" Width="1200"
+        Title="MovieApp" MinHeight="800" MinWidth="1200" Height="800" Width="1200"
         ResizeMode="NoResize">
     <Grid>
-        <views:MoviePageView/>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:AccountSettingsViewModel}">
+                <views:AccountSettingsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:AddedMoviesListViewModel}">
+                <views:AddedMoviesListView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:LoginRegisterViewModel}">
+                <views:LoginRegisterView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:MoviePageViewModel}">
+                <views:MoviePageView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:ProfileViewModel}">
+                <views:ProfileView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:SearchMoviesListViewModel}">
+                <views:SearchMoviesListView/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

@@ -133,6 +133,7 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="2.5*"/>
                 <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="0.25*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0"
                                           FontSize="20"
@@ -224,6 +225,7 @@
                             <Button Grid.Column="5"
                                            FontSize="20"
                                            Content="Show"
+                                           Padding="15 5 15 5"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
@@ -233,5 +235,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+       
     </Grid>
 </UserControl>
