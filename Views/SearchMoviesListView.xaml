@@ -16,7 +16,6 @@
             <Setter Property="FontSize" Value="30"/>
         </Style>
         <Style TargetType="Separator">
-            <Setter Property="Margin" Value="10 0 10 0"/>
             <Setter Property="VerticalAlignment" Value="Bottom"/>
         </Style>
     </UserControl.Resources>
@@ -24,7 +23,9 @@
     <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="9*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="12*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Background="DodgerBlue">
@@ -58,74 +59,156 @@
             </Menu>
         </Grid>
 
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Name:" FontSize="30"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                <TextBox Grid.Column="1"
+                         Margin="10"/>
+                <Button Grid.Column="2"
+                        FontSize="25"
+                        Width="150"
+                        Content="Search"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                                           />
+            </Grid>
 
-        <ListBox Grid.Row="1" IsHitTestVisible="False">
-            <ListItem/>
-            <ListItem/>
-            <ListItem/>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Width="1190" MaxWidth="1190">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1.5*"/>
-                                <ColumnDefinition Width="7*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0"
-                                           FontSize="20"
-                                           Text="IMG"
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Genre:" FontSize="30"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                <ComboBox Grid.Column="1" Margin="10"/>
+                <TextBlock Grid.Column="2"
+                           Text="Year:" FontSize="30"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                <ComboBox Grid.Column="3" Margin="10"/>
+                <TextBlock Grid.Column="4"
+                           Text="Rating:" FontSize="30"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                <ComboBox Grid.Column="5" Margin="10"/>
+            </Grid>
+        </Grid>
+
+        <Grid Background="DodgerBlue" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0"
+                                          FontSize="20"
+                                           Text="Movie Name + Desciprtion"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
-                                           Margin="5 5 5 5"
                                            />
-                            <Grid Grid.Column="1">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" FontSize="20" Text="MOVIE NAME"/>
-                                <TextBlock Grid.Row="1" FontSize="15"
-                                           Text="VERY VERY VERY VERY LONG DESCRIPTION"/>
-                            </Grid>
-                            <TextBlock Grid.Column="2"
-                                           FontSize="20"
+            <TextBlock Grid.Column="1"
+                                          FontSize="20"
                                            Text="Rating"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
-                            <TextBlock Grid.Column="3"
+            <TextBlock Grid.Column="2"
                                            FontSize="20"
                                            Text="Year"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
-                            <TextBlock Grid.Column="4"
+            <TextBlock Grid.Column="3"
                                            FontSize="20"
                                            Text="Length"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
-                            <TextBlock Grid.Column="5"
+            <TextBlock Grid.Column="4"
                                            FontSize="20"
                                            Text="Genre"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
-                            <TextBlock Grid.Column="6"
+            <TextBlock Grid.Column="5"
                                            FontSize="20"
-                                           Text="Directors"
+                                           Text="Movie Page"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
-                            <Button Grid.Column="7"
+        </Grid>
+
+        <ListBox Grid.Row="3">
+            <ListItem/>
+            <ListItem/>
+            <ListItem/>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Width="1170" MaxWidth="1170">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="2.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" FontSize="20" Text="MOVIE NAME - StatusSquare(PTW/-/WTH)"/>
+                                <TextBlock Grid.Row="1" FontSize="15"
+                                           Text="VERY VERY VERY VERY LONG DESCRIPTION"/>
+                            </Grid>
+                            <TextBlock Grid.Column="1"
                                            FontSize="20"
-                                           Content="Status"
+                                           Text="Rating"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           />
+                            <TextBlock Grid.Column="2"
+                                           FontSize="20"
+                                           Text="Year"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           />
+                            <TextBlock Grid.Column="3"
+                                           FontSize="20"
+                                           Text="Length"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           />
+                            <TextBlock Grid.Column="4"
+                                           FontSize="20"
+                                           Text="Genre"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           />
+                            <Button Grid.Column="5"
+                                           FontSize="20"
+                                           Content="Show"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />

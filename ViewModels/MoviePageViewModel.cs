@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektProgramowanie.Models
+namespace ProjektProgramowanie.ViewModels
 {
-    internal class AccountSettings
+    internal class MoviePageViewModel
     {
     }
 }

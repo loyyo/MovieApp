@@ -30,3 +30,5 @@ C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views
 C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\SearchMoviesListView.baml
 C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\LoginRegisterView.g.cs
 C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\LoginRegisterView.baml
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\MoviePageView.g.cs
+C:\Users\Maciek\source\repos\ProjektProgramowanie\obj\Debug\net6.0-windows\Views\MoviePageView.baml

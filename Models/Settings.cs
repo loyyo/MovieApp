@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektProgramowanie.Models
 {
-    internal class ReviewList
+    internal class Settings
     {
     }
 }

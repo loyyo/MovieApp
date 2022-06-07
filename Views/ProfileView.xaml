@@ -52,7 +52,7 @@
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="9*"/>
+                    <RowDefinition Height="7*"/>
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0"
@@ -67,6 +67,7 @@
                        VerticalAlignment="Center"/>
                 <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
+                        <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -131,6 +132,14 @@
                        VerticalAlignment="Center">
                         <TextBlock Text="100"/>
                     </TextBlock>
+                    <TextBlock Grid.Row="7"
+                       Text="Minutes Watched: "
+                       FontSize="20"
+                       Margin="10 0 0 0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center">
+                        <TextBlock Text="1000"/>
+                    </TextBlock>
                 </Grid>
             </Grid>
 
@@ -145,18 +154,10 @@
                         <StackPanel Width="770" MaxWidth="770">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1.5*"/>
                                     <ColumnDefinition Width="7*"/>
                                     <ColumnDefinition Width="2*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0"
-                                           FontSize="20"
-                                           Text="IMG"
-                                           VerticalAlignment="Center"
-                                           HorizontalAlignment="Center"
-                                           Margin="5 5 5 5"
-                                           />
-                                <Grid Grid.Column="1">
+                                <Grid Grid.Column="0">
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
                                         <RowDefinition/>
@@ -168,10 +169,10 @@
                                             <ColumnDefinition Width="1*"/>
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Grid.Column="0" FontSize="20" Text="Added: Watched"/>
-                                        <TextBlock Grid.Column="1" FontSize="20" Text="Scored: 10"/>
+                                        <TextBlock Grid.Column="1" FontSize="20" Text="Your Score: 10"/>
                                     </Grid>
                                 </Grid>
-                                <TextBlock Grid.Column="2"
+                                <TextBlock Grid.Column="1"
                                            FontSize="20"
                                            Text="Date"
                                            VerticalAlignment="Center"
