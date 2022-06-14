@@ -12,7 +12,7 @@ namespace ProjektProgramowanie.Commands
     {
         private readonly NavigationService _profileViewNavigationService;
 
-        public RegisterCommand(LoginRegisterViewModel loginViewModel, NavigationService profileViewNavigationService)
+        public RegisterCommand(LoginRegisterViewModel registerViewModel, NavigationService profileViewNavigationService)
         {
             _profileViewNavigationService = profileViewNavigationService;
         }

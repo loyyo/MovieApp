@@ -36,9 +36,37 @@ namespace ProjektProgramowanie
             base.OnStartup(e);
         }
 
+
+        private AddedMoviesListViewModel CreateAddedMoviesListViewModel()
+        {
+            return new AddedMoviesListViewModel(
+                new NavigationService(_navigationStore, CreateProfileViewModel),
+                new NavigationService(_navigationStore, CreateAccountSettingsViewModel),
+                new NavigationService(_navigationStore, CreateSearchMoviesListViewModel));
+        }
+
+        private AccountSettingsViewModel CreateAccountSettingsViewModel()
+        {
+            return new AccountSettingsViewModel(
+                new NavigationService(_navigationStore, CreateProfileViewModel),
+                new NavigationService(_navigationStore, CreateSearchMoviesListViewModel),
+                new NavigationService(_navigationStore, CreateAddedMoviesListViewModel));
+        }
+
+        private SearchMoviesListViewModel CreateSearchMoviesListViewModel()
+        {
+            return new SearchMoviesListViewModel(
+                new NavigationService(_navigationStore, CreateProfileViewModel),
+                new NavigationService(_navigationStore, CreateAccountSettingsViewModel),
+                new NavigationService(_navigationStore, CreateAddedMoviesListViewModel));
+        }
+
         private ProfileViewModel CreateProfileViewModel()
         {
-            return new ProfileViewModel();
+            return new ProfileViewModel(
+                new NavigationService(_navigationStore, CreateAccountSettingsViewModel),
+                new NavigationService(_navigationStore, CreateSearchMoviesListViewModel),
+                new NavigationService(_navigationStore, CreateAddedMoviesListViewModel));
         }
 
         private LoginRegisterViewModel CreateLoginRegisterViewModel()

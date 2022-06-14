@@ -22,11 +22,11 @@
 
     <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
             <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Background="DodgerBlue">
@@ -53,9 +53,9 @@
                   HorizontalAlignment="Right"
                   Margin="0 0 10 0">
                 <MenuItem Header="Menu" FontSize="30" Foreground="White">
-                    <MenuItem Header="Profile"/>
-                    <MenuItem Header="Settings"/>
-                    <MenuItem Header="Search Movies"/>
+                    <MenuItem Header="Profile" Command="{Binding GoToProfileView}"/>
+                    <MenuItem Header="Settings" Command="{Binding GoToAccountSettingsView}"/>
+                    <MenuItem Header="Search Movies" Command="{Binding GoToSearchMoviesListView}"/>
                 </MenuItem>
             </Menu>
         </Grid>
