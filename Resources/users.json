@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Maciek",
+    "surname": "Wiencis",
+    "username": "loyyo",
+    "email": "maciejwiencis262@gmail.com",
+    "password": "12345",
+    "birthday": "2000-02-26",
+    "country": "Polska",
+    "picture": "tutaj trzeba jakoœ ogarn¹æ zdj, ewentualnie mo¿na skipn¹æ ale zdj fajnie wyglada",
+    "addedMovies": [
+      {
+        "movieName": "OnePunchMan",
+        "description": "He hits hard",
+        "score": 9,
+        "year": "2000",
+        "length": 100,
+        "genre": "Action",
+        "list": "Watched",
+        "date": "15.06.2022 17:47:04"
+      },
+      {
+        "movieName": "XDDD",
+        "description": "He hits hard",
+        "score": 8,
+        "year": "2000",
+        "length": 100,
+        "genre": "Action",
+        "list": "Watched",
+        "date": "15.06.2022 17:47:04"
+      }
+    ]
+  },
+
+  {
+    "name": "Maciek",
+    "surname": "Wiencis",
+    "username": "loy",
+    "email": "wiencis@gmail.com",
+    "password": "12345",
+    "birthday": "2000-02-26",
+    "country": "Polska",
+    "picture": "zdj",
+    "addedMovies": [
+      {
+        "movieName": "OnePunchMan",
+        "description": "He hits hard",
+        "score": 9,
+        "year": "2000",
+        "length": 100,
+        "genre": "Action",
+        "list": "Watched",
+        "date": "15.06.2022 17:47:04"
+      },
+      {
+        "movieName": "XDDD",
+        "description": "He hits hard",
+        "score": 8,
+        "year": "2000",
+        "length": 100,
+        "genre": "Action",
+        "list": "Watched",
+        "date": "15.06.2022 17:47:04"
+      }
+    ]
+  }
+
+ ]

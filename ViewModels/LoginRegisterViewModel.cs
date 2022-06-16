@@ -1,4 +1,5 @@
 ﻿using ProjektProgramowanie.Commands;
+using ProjektProgramowanie.Models;
 using ProjektProgramowanie.Services;
 using ProjektProgramowanie.Stores;
 using ProjektProgramowanie.ViewModels.Base;
@@ -13,10 +14,13 @@ namespace ProjektProgramowanie.ViewModels
 {
     internal class LoginRegisterViewModel : BaseViewModel
     {
-        public LoginRegisterViewModel(NavigationService profileViewNavigationService)
+        public Users _users;
+
+        public LoginRegisterViewModel(ProfileStore profileStore, NavigationService profileViewNavigationService)
         {
-            LoginCommand = new LoginCommand(this, profileViewNavigationService);
+            LoginCommand = new LoginCommand(this, profileStore, profileViewNavigationService);
             RegisterCommand = new RegisterCommand(this, profileViewNavigationService);
+            _users = new Users();
         }
 
         public ICommand LoginCommand { get; }

@@ -17,10 +17,12 @@ namespace ProjektProgramowanie
     public partial class App : Application
     {
         private readonly NavigationStore _navigationStore;
+        private readonly ProfileStore _profile;
 
         public App()
         {
             _navigationStore = new NavigationStore();
+            _profile = new ProfileStore();
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -64,6 +66,7 @@ namespace ProjektProgramowanie
         private ProfileViewModel CreateProfileViewModel()
         {
             return new ProfileViewModel(
+                _profile,
                 new NavigationService(_navigationStore, CreateAccountSettingsViewModel),
                 new NavigationService(_navigationStore, CreateSearchMoviesListViewModel),
                 new NavigationService(_navigationStore, CreateAddedMoviesListViewModel));
@@ -71,7 +74,7 @@ namespace ProjektProgramowanie
 
         private LoginRegisterViewModel CreateLoginRegisterViewModel()
         {
-            return new LoginRegisterViewModel(new NavigationService(_navigationStore, CreateProfileViewModel));
+            return new LoginRegisterViewModel(_profile, new NavigationService(_navigationStore, CreateProfileViewModel));
         }
 
 

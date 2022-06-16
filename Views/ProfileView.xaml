@@ -56,15 +56,17 @@
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0"
-                       Text="Profil noobmaster69"
+                       Text="{Binding Username}"
                        FontSize="20"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
+                
                 <TextBlock Grid.Row="1"
                        Text="Image"
                        FontSize="20"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
+                
                 <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -82,7 +84,7 @@
                        Margin="10 10 10 10"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center">
-                        <TextBlock Text="Maciej"/>
+                        <TextBlock Text="{Binding Name}"/>
                     </TextBlock>
                     <TextBlock Grid.Row="1"
                        Text="Surname: "
@@ -90,7 +92,7 @@
                        Margin="10 10 10 10"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center">
-                        <TextBlock Text="Wiencis"/>
+                        <TextBlock Text="{Binding Surname}"/>
                     </TextBlock>
                     <TextBlock Grid.Row="2"
                        Text="Birthday: "
@@ -98,7 +100,7 @@
                        Margin="10 10 10 10"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center">
-                        <TextBlock Text="26.02.2000"/>
+                        <TextBlock Text="{Binding Birthday}"/>
                     </TextBlock>
                     <TextBlock Grid.Row="3"
                        Text="Country: "
@@ -106,39 +108,39 @@
                        Margin="10 10 10 10"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center">
-                        <TextBlock Text="Poland"/>
+                        <TextBlock Text="{Binding Country}"/>
                     </TextBlock>
                     <TextBlock Grid.Row="4"
-                       Text="Movies Watched: "
-                       FontSize="20"
-                       Margin="10 10 10 10"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center">
-                        <TextBlock Text="100"/>
-                    </TextBlock>
-                    <TextBlock Grid.Row="5"
-                       Text="Average Rating: "
-                       FontSize="20"
-                       Margin="10 0 0 0"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center">
-                        <TextBlock Text="9.4"/>
-                    </TextBlock>
-                    <TextBlock Grid.Row="6"
                        Text="Movies PTW: "
                        FontSize="20"
                        Margin="10 0 0 0"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center">
-                        <TextBlock Text="100"/>
+                        <TextBlock Text="{Binding MoviesPTW}"/>
                     </TextBlock>
-                    <TextBlock Grid.Row="7"
+                    <TextBlock Grid.Row="5"
+                       Text="Movies Watched: "
+                       FontSize="20"
+                       Margin="10 10 10 10"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center">
+                        <TextBlock Text="{Binding MoviesWatched}"/>
+                    </TextBlock>
+                    <TextBlock Grid.Row="6"
                        Text="Minutes Watched: "
                        FontSize="20"
                        Margin="10 0 0 0"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center">
-                        <TextBlock Text="1000"/>
+                        <TextBlock Text="{Binding MinutesWatched}"/>
+                    </TextBlock>
+                    <TextBlock Grid.Row="7"
+                       Text="Average Rating: "
+                       FontSize="20"
+                       Margin="10 0 0 0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center">
+                        <TextBlock Text="{Binding AverageRating}"/>
                     </TextBlock>
                 </Grid>
             </Grid>
