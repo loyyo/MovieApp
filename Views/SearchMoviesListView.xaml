@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:ProjektProgramowanie.Views"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1200">
@@ -119,11 +120,11 @@
 
         <Grid Margin="0 0 -15 0" Background="DodgerBlue" Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="1.5*"/>
                 <ColumnDefinition Width="0.25*"/>
             </Grid.ColumnDefinitions>
@@ -159,13 +160,13 @@
                                            />
             <TextBlock Grid.Column="5"
                                            FontSize="20"
-                                           Text="Movie Page"
+                                           Text="Double Click"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
         </Grid>
 
-        <ListBox Grid.Row="3" ItemsSource="{Binding AllMoviesList}">
+        <ListBox Grid.Row="3" ItemsSource="{Binding AllMoviesList}" SelectedItem="{Binding SelectedItem}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="1170" MaxWidth="1170">
@@ -211,18 +212,16 @@
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
-                            <Button Grid.Column="5"
-                                           FontSize="20"
-                                           Padding="15 5 15 5"
-                                           Content="Show"
-                                           VerticalAlignment="Center"
-                                           HorizontalAlignment="Center"
-                                           />
                         </Grid>
                         <Separator />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding DoubleClickCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
         </ListBox>
     </Grid>
 </UserControl>

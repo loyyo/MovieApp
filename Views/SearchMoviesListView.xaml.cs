@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjektProgramowanie.ViewModels.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,19 @@ namespace ProjektProgramowanie.Views
         public SearchMoviesListView()
         {
             InitializeComponent();
+        }
+        public static readonly DependencyProperty DoubleClickCommandProperty =
+        DependencyProperty.Register(
+             nameof(DoubleClickCommand),
+             typeof(RelayCommand),
+             typeof(SearchMoviesListView)
+          );
+
+        public RelayCommand DoubleClickCommand
+        {
+
+            get { return (RelayCommand)GetValue(DoubleClickCommandProperty); }
+            set { SetValue(DoubleClickCommandProperty, value); }
         }
     }
 }

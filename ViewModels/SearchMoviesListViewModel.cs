@@ -17,16 +17,16 @@ namespace ProjektProgramowanie.ViewModels
     internal class SearchMoviesListViewModel : BaseViewModel
     {
         public SearchMoviesListViewModel(
-            ProfileStore profileStore,
             Movies movies,
             MovieStore movieStore,
+            NavigationService movieNavigationService,
             NavigationService profileViewNavigationService,
             NavigationService accountSettingsViewNavigationService,
             NavigationService addedMoviesListViewNavigationService)
         {
-            _profile = profileStore;
             _movies = movies;
             _movieStore = movieStore;
+            _movieNavigationService = movieNavigationService;
             GoToProfileView = new NavigateCommand(profileViewNavigationService);
             GoToAccountSettingsView = new NavigateCommand(accountSettingsViewNavigationService);
             GoToAddedMoviesListView = new NavigateCommand(addedMoviesListViewNavigationService);
@@ -40,11 +40,10 @@ namespace ProjektProgramowanie.ViewModels
             SelectedRating = "Select";
         }
 
-        private readonly ProfileStore _profile;
+        private readonly NavigationService _movieNavigationService;
         private readonly Movies _movies;
         private readonly MovieStore _movieStore;
 
-        public ICommand ShowMovieCommand { get; }
         public ICommand GoToProfileView { get; }
         public ICommand GoToAccountSettingsView { get; }
         public ICommand GoToAddedMoviesListView { get; }
@@ -89,6 +88,13 @@ namespace ProjektProgramowanie.ViewModels
         {
             get { return _searchGenre; }
             set { _searchGenre = value; OnPropertyChanged(nameof(SearchGenre)); }
+        }
+
+        private MovieItemViewModel _selectedItem;
+        public MovieItemViewModel SelectedItem
+        {
+            get { return _selectedItem; }
+            set { _selectedItem = value; OnPropertyChanged(nameof(SelectedItem)); }
         }
 
         private RelayCommand? _searchMoviesCommand;
@@ -155,6 +161,21 @@ namespace ProjektProgramowanie.ViewModels
 
                     }, argument => true);
                 return _searchMoviesCommand;
+            }
+        }
+        private RelayCommand? _doubleClickCommand;
+        public RelayCommand DoubleClickCommand
+        {
+            get
+            {
+                if (_doubleClickCommand == null)
+                    _doubleClickCommand = new RelayCommand(argument =>
+                    {
+                        _movieStore.Movie = _movies._moviesList.Where(x => x.MovieName == SelectedItem.MovieName).First();
+                        _movieNavigationService.Navigate();
+
+                    }, argument => true);
+                return _doubleClickCommand;
             }
         }
     }

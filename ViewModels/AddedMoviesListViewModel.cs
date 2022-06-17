@@ -20,6 +20,7 @@ namespace ProjektProgramowanie.ViewModels
             ProfileStore profileStore,
             Movies movies,
             MovieStore movieStore,
+            NavigationService movieNavigationService,
             NavigationService profileViewNavigationService,
             NavigationService accountSettingsViewNavigationService,
             NavigationService searchMoviesListViewNavigationService)
@@ -28,6 +29,7 @@ namespace ProjektProgramowanie.ViewModels
             _movies = movies;
             _movieStore = movieStore;
 
+            _movieNavigationService = movieNavigationService;
             GoToProfileView = new NavigateCommand(profileViewNavigationService);
             GoToAccountSettingsView = new NavigateCommand(accountSettingsViewNavigationService);
             GoToSearchMoviesListView = new NavigateCommand(searchMoviesListViewNavigationService);
@@ -43,11 +45,11 @@ namespace ProjektProgramowanie.ViewModels
 
         }
 
+        private readonly NavigationService _movieNavigationService;
         private readonly ProfileStore _profile;
         private readonly Movies _movies;
         private readonly MovieStore _movieStore;
 
-        public ICommand ShowMovieCommand { get; }
         public ICommand GoToProfileView { get; }
         public ICommand GoToAccountSettingsView { get; }
         public ICommand GoToSearchMoviesListView { get; }
@@ -94,6 +96,13 @@ namespace ProjektProgramowanie.ViewModels
         {
             get { return _searchGenre; }
             set { _searchGenre = value; OnPropertyChanged(nameof(SearchGenre)); }
+        }
+
+        private ProfileHistoryViewModel _selectedItem;
+        public ProfileHistoryViewModel SelectedItem
+        {
+            get { return _selectedItem; }
+            set { _selectedItem = value; OnPropertyChanged(nameof(SelectedItem)); }
         }
 
         private RelayCommand? _showWatchedMovies;
@@ -200,6 +209,22 @@ namespace ProjektProgramowanie.ViewModels
 
                     }, argument => true);
                 return _searchAddedCommand;
+            }
+        }
+
+        private RelayCommand? _doubleClickCommand;
+        public RelayCommand DoubleClickCommand
+        {
+            get
+            {
+                if (_doubleClickCommand == null)
+                    _doubleClickCommand = new RelayCommand(argument =>
+                    {
+                        _movieStore.Movie = _movies._moviesList.Where(x => x.MovieName == SelectedItem.MovieName).First();
+                        _movieNavigationService.Navigate();
+
+                    }, argument => true);
+                return _doubleClickCommand;
             }
         }
     }

@@ -30,45 +30,64 @@ namespace ProjektProgramowanie.ViewModels
             GoToSearchMoviesListView = new NavigateCommand(searchMoviesListViewNavigationService);
             GoToAddedMoviesListView = new NavigateCommand(addedMoviesListViewNavigationService);
 
-            _profileMovie = _profile.CurrentProfile.AddedMovies.Where(x => x.MovieName == _movie.Movie.MovieName).First();
-
-            switch (_profileMovie.Score)
+            try
             {
-                case 1:
-                    SelectedScore = "(1) Appalling";
-                    break;
-                case 2:
-                    SelectedScore = "(2) Horrible";
-                    break;
-                case 3:
-                    SelectedScore = "(3) Very Bad";
-                    break;
-                case 4:
-                    SelectedScore = "(4) Bad";
-                    break;
-                case 5:
-                    SelectedScore = "(5) Average";
-                    break;
-                case 6:
-                    SelectedScore = "(6) Fine";
-                    break;
-                case 7:
-                    SelectedScore = "(7) Good";
-                    break;
-                case 8:
-                    SelectedScore = "(8) Very Good";
-                    break;
-                case 9:
-                    SelectedScore = "(9) Great";
-                    break;
-                case 10:
-                    SelectedScore = "(10) Masterpiece";
-                    break;
+                _profileMovie = _profile.CurrentProfile.AddedMovies.Where(x => x.MovieName == _movie.Movie.MovieName).First();
+            }
+            catch (Exception ex)
+            {
+                _profileMovie = new HistoryItem(string.Empty, string.Empty, 0, string.Empty, 0, string.Empty, string.Empty, string.Empty);
+            }
+
+            MovieName = _movie.Movie.MovieName;
+            Description = _movie.Movie.Description;
+            Rating = _movie.Movie.Rating;
+            Year = _movie.Movie.Year;
+            Length = _movie.Movie.Length;
+            Genre = _movie.Movie.Genre;
+            Directors = _movie.Movie.Directors;
+            Actors = _movie.Movie.Actors;
+
+            if (_profileMovie.Score == 0) SelectedScore = "Select";
+            else
+            {
+                switch (_profileMovie.Score)
+                {
+                    case 1:
+                        SelectedScore = "(1) Appalling";
+                        break;
+                    case 2:
+                        SelectedScore = "(2) Horrible";
+                        break;
+                    case 3:
+                        SelectedScore = "(3) Very Bad";
+                        break;
+                    case 4:
+                        SelectedScore = "(4) Bad";
+                        break;
+                    case 5:
+                        SelectedScore = "(5) Average";
+                        break;
+                    case 6:
+                        SelectedScore = "(6) Fine";
+                        break;
+                    case 7:
+                        SelectedScore = "(7) Good";
+                        break;
+                    case 8:
+                        SelectedScore = "(8) Very Good";
+                        break;
+                    case 9:
+                        SelectedScore = "(9) Great";
+                        break;
+                    case 10:
+                        SelectedScore = "(10) Masterpiece";
+                        break;
+                }
             }
 
             ComboBoxScores = new ObservableCollection<string> { "Select", "(10) Masterpiece", "(9) Great", "(8) Very Good",
                 "(7) Good", "(6) Fine", "(5) Average", "(4) Bad", "(3) Very Bad", "(2) Horrible", "(1) Appalling" };
-            SelectedScore = "Select";
         }
 
         private readonly ProfileStore _profile;
@@ -129,11 +148,11 @@ namespace ProjektProgramowanie.ViewModels
             set { _length = value; OnPropertyChanged(nameof(Length)); }
         }
 
-        private string _genres;
-        public string Genres
+        private string _genre;
+        public string Genre
         {
-            get { return _genres; }
-            set { _genres = value; OnPropertyChanged(nameof(Genres)); }
+            get { return _genre; }
+            set { _genre = value; OnPropertyChanged(nameof(Genre)); }
         }
 
         private string _directors;

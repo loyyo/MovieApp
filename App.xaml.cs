@@ -65,6 +65,7 @@ namespace ProjektProgramowanie
                 _profile,
                 _moviesList,
                 _movie,
+                new NavigationService(_navigationStore, CreateMoviePageViewModel),
                 new NavigationService(_navigationStore, CreateProfileViewModel),
                 new NavigationService(_navigationStore, CreateAccountSettingsViewModel),
                 new NavigationService(_navigationStore, CreateSearchMoviesListViewModel));
@@ -81,9 +82,9 @@ namespace ProjektProgramowanie
         private SearchMoviesListViewModel CreateSearchMoviesListViewModel()
         {
             return new SearchMoviesListViewModel(
-                _profile,
                 _moviesList,
                 _movie,
+                new NavigationService(_navigationStore, CreateMoviePageViewModel),
                 new NavigationService(_navigationStore, CreateProfileViewModel),
                 new NavigationService(_navigationStore, CreateAccountSettingsViewModel),
                 new NavigationService(_navigationStore, CreateAddedMoviesListViewModel));
