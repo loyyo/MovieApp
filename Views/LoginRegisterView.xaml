@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjektProgramowanie.Views"
+             xmlns:components="clr-namespace:ProjektProgramowanie.Components"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="1000">
     <UserControl.Resources>
@@ -72,7 +73,7 @@
                     <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Password"/>
-                <TextBox Text="{Binding LoginPassword, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
+                <components:BindablePasswordBox Password="{Binding LoginPassword}" Grid.Row="1"/>
             </Grid>
 
             <Separator Grid.Row="2"/>
@@ -161,7 +162,7 @@
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Password"/>
-                <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
+                <components:BindablePasswordBox Password="{Binding Password}" Grid.Row="1"/>
             </Grid>
 
             <Grid Grid.Row="5" Margin="10">

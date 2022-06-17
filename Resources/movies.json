@@ -2,7 +2,7 @@
   {
     "movieName": "OnePunchMan",
     "description": "He hits hard",
-    "rating": 9.4,
+    "rating": 8.4,
     "year": "2000",
     "length": 100,
     "genre": "Action",
@@ -13,7 +13,7 @@
   {
     "movieName": "Not OPM",
     "description": "He hits hard",
-    "rating": 9.4,
+    "rating": 8.6,
     "year": "2000",
     "length": 100,
     "genre": "Action",

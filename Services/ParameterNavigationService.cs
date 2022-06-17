@@ -11,6 +11,8 @@ namespace ProjektProgramowanie.Services
     internal class ParameterNavigationService<TParameter, TViewModel> where TViewModel : BaseViewModel
     {
         private readonly NavigationStore _navigationStore;
+        private readonly MovieStore _movieStore;
+        private readonly ProfileStore _profileStore;
         private readonly Func<TParameter, TViewModel> _createViewModel;
 
         public ParameterNavigationService(NavigationStore navigationStore, Func<TParameter, TViewModel> createViewModel)

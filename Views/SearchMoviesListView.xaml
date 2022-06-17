@@ -74,6 +74,7 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
                 <TextBox Grid.Column="1"
+                         Text="{Binding SearchMovieName}"
                          Margin="10"/>
                 <Button Grid.Column="2"
                         FontSize="25"
@@ -81,6 +82,7 @@
                         Content="Search"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
+                        Command="{Binding SearchMoviesCommand}"
                                            />
             </Grid>
 
@@ -96,21 +98,26 @@
                 <TextBlock Text="Genre:" FontSize="30"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
-                <ComboBox Grid.Column="1" Margin="10"/>
+                <TextBox Grid.Column="1"
+                         Text="{Binding SearchGenre}"
+                         Margin="10"/>
                 <TextBlock Grid.Column="2"
                            Text="Year:" FontSize="30"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
-                <ComboBox Grid.Column="3" Margin="10"/>
+                <TextBox Text="{Binding SearchYear}" Grid.Column="3" Margin="10"/>
                 <TextBlock Grid.Column="4"
                            Text="Rating:" FontSize="30"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
-                <ComboBox Grid.Column="5" Margin="10"/>
+                <ComboBox Grid.Column="5" Margin="10"
+                          FontSize="20"
+                          ItemsSource="{Binding ComboBoxRatings}"
+                          SelectedItem="{Binding SelectedRating}"/>
             </Grid>
         </Grid>
 
-        <Grid Background="DodgerBlue" Grid.Row="2">
+        <Grid Margin="0 0 -15 0" Background="DodgerBlue" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="1*"/>
@@ -158,10 +165,7 @@
                                            />
         </Grid>
 
-        <ListBox Grid.Row="3">
-            <ListItem/>
-            <ListItem/>
-            <ListItem/>
+        <ListBox Grid.Row="3" ItemsSource="{Binding AllMoviesList}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="1170" MaxWidth="1170">
@@ -179,31 +183,31 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" FontSize="20" Text="MOVIE NAME - StatusSquare(PTW/-/WTH)"/>
+                                <TextBlock Grid.Row="0" FontSize="20" Text="{Binding MovieName}"/>
                                 <TextBlock Grid.Row="1" FontSize="15"
-                                           Text="VERY VERY VERY VERY LONG DESCRIPTION"/>
+                                           Text="{Binding Description}"/>
                             </Grid>
                             <TextBlock Grid.Column="1"
                                            FontSize="20"
-                                           Text="Rating"
+                                           Text="{Binding Rating}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
                             <TextBlock Grid.Column="2"
                                            FontSize="20"
-                                           Text="Year"
+                                           Text="{Binding Year}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
                             <TextBlock Grid.Column="3"
                                            FontSize="20"
-                                           Text="Length"
+                                           Text="{Binding Length}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
                             <TextBlock Grid.Column="4"
                                            FontSize="20"
-                                           Text="Genre"
+                                           Text="{Binding Genre}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />

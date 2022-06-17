@@ -18,16 +18,22 @@ namespace ProjektProgramowanie.ViewModels
     {
         public AddedMoviesListViewModel(
             ProfileStore profileStore,
+            Movies movies,
+            MovieStore movieStore,
             NavigationService profileViewNavigationService,
             NavigationService accountSettingsViewNavigationService,
             NavigationService searchMoviesListViewNavigationService)
         {
             _profile = profileStore;
+            _movies = movies;
+            _movieStore = movieStore;
+
             GoToProfileView = new NavigateCommand(profileViewNavigationService);
             GoToAccountSettingsView = new NavigateCommand(accountSettingsViewNavigationService);
             GoToSearchMoviesListView = new NavigateCommand(searchMoviesListViewNavigationService);
             AddedMoviesList = new ObservableCollection<ProfileHistoryViewModel>();
-            foreach (HistoryItem movie in AddedMovies)
+
+            foreach (HistoryItem movie in AddedMovies.OrderByDescending(m => m.Score))
             {
                 AddedMoviesList.Add(new ProfileHistoryViewModel(movie.MovieName, movie.Description, movie.Score, movie.Year, movie.Length, movie.Genre, movie.List, movie.Date));
             }
@@ -38,6 +44,10 @@ namespace ProjektProgramowanie.ViewModels
         }
 
         private readonly ProfileStore _profile;
+        private readonly Movies _movies;
+        private readonly MovieStore _movieStore;
+
+        public ICommand ShowMovieCommand { get; }
         public ICommand GoToProfileView { get; }
         public ICommand GoToAccountSettingsView { get; }
         public ICommand GoToSearchMoviesListView { get; }
@@ -95,7 +105,7 @@ namespace ProjektProgramowanie.ViewModels
                     _showWatchedMovies = new RelayCommand(argument =>
                     {
                         AddedMoviesList.Clear();
-                        foreach (HistoryItem movie in AddedMovies)
+                        foreach (HistoryItem movie in AddedMovies.OrderByDescending(m => m.Score))
                         {
                             if (movie.List == "Watched")
                                 AddedMoviesList.Add(new ProfileHistoryViewModel
@@ -115,7 +125,7 @@ namespace ProjektProgramowanie.ViewModels
                     _showPTWMovies = new RelayCommand(argument =>
                     {
                         AddedMoviesList.Clear();
-                        foreach (HistoryItem movie in AddedMovies)
+                        foreach (HistoryItem movie in AddedMovies.OrderByDescending(m => m.Score))
                         {
                             if (movie.List == "PTW")
                                 AddedMoviesList.Add(new ProfileHistoryViewModel
@@ -174,7 +184,7 @@ namespace ProjektProgramowanie.ViewModels
                                     SearchedScored = 10;
                                     break;
                             }
-                            SearchedMovies = SearchedMovies.Where(m => m.Score == SearchedScored).ToList();
+                            SearchedMovies = SearchedMovies.Where(m => m.Score >= SearchedScored).ToList();
                         }
 
                         if (SearchGenre != null & SearchGenre != string.Empty) SearchedMovies = SearchedMovies.Where(m => m.Genre.ToLower().Contains(SearchGenre.ToLower())).ToList();
@@ -182,7 +192,7 @@ namespace ProjektProgramowanie.ViewModels
                         if (SearchMovieName != null & SearchMovieName != string.Empty) SearchedMovies = SearchedMovies.Where(m => m.MovieName.ToLower().Contains(SearchMovieName.ToLower())).ToList();
 
                         AddedMoviesList.Clear();
-                        foreach (HistoryItem movie in SearchedMovies)
+                        foreach (HistoryItem movie in SearchedMovies.OrderByDescending(m => m.Score))
                         {
                                 AddedMoviesList.Add(new ProfileHistoryViewModel
                                     (movie.MovieName, movie.Description, movie.Score, movie.Year, movie.Length, movie.Genre, movie.List, movie.Date));

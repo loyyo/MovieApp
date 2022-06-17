@@ -16,11 +16,11 @@ namespace ProjektProgramowanie.ViewModels
     {
         public Users _users;
 
-        public LoginRegisterViewModel(ProfileStore profileStore, NavigationService profileViewNavigationService)
+        public LoginRegisterViewModel(Users users, ProfileStore profileStore, NavigationService profileViewNavigationService)
         {
             LoginCommand = new LoginCommand(this, profileStore, profileViewNavigationService);
             RegisterCommand = new RegisterCommand(this, profileViewNavigationService);
-            _users = new Users();
+            _users = users;
         }
 
         public ICommand LoginCommand { get; }

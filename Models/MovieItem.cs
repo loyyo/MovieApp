@@ -10,14 +10,14 @@ namespace ProjektProgramowanie.Models
     {
         public string MovieName { get; set; }
         public string Description { get; set; }
-        public int Rating { get; set; }
+        public float Rating { get; set; }
         public string Year { get; set; }
         public int Length { get; set; }
         public string Genre { get; set; }
         public string Directors { get; set; }
         public string Actors { get; set; }
 
-        public MovieItem(string movieName, string description, int rating, string year, int length, string genre, string directors, string actors)
+        public MovieItem(string movieName, string description, float rating, string year, int length, string genre, string directors, string actors)
         {
             MovieName = movieName;
             Description = description;

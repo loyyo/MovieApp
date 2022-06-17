@@ -59,7 +59,7 @@
                        Margin="10 10 10 10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
-                        <TextBlock Text="One Punch Man"/>
+                        <TextBlock Text="{Binding MovieName}"/>
             </TextBlock>
             <TextBlock Grid.Row="1"
                        Text="Description: "
@@ -67,7 +67,7 @@
                        Margin="10 10 10 10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
-                        <TextBlock Text="He hits hard"/>
+                        <TextBlock Text="{Binding Description}"/>
             </TextBlock>
 
             <Grid Grid.Row="2">
@@ -82,7 +82,7 @@
                        Margin="10 10 10 10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
-                        <TextBlock Text="10"/>
+                        <TextBlock Text="{Binding Rating}"/>
                 </TextBlock>
                 <TextBlock Grid.Column="1"
                        Text="Year: "
@@ -90,7 +90,7 @@
                        Margin="10 10 10 10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
-                        <TextBlock Text="2000"/>
+                        <TextBlock Text="{Binding Year}"/>
                 </TextBlock>
                 <TextBlock Grid.Column="2"
                        Text="Length: "
@@ -98,7 +98,9 @@
                        Margin="10 10 10 10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
-                        <TextBlock Text="100 min"/>
+                        <TextBlock Text="{Binding Length}">
+                            <TextBlock Text=" min"/>
+                        </TextBlock>
                 </TextBlock>
             </Grid>
             <TextBlock Grid.Row="3"
@@ -107,7 +109,7 @@
                        Margin="10 10 10 10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
-                        <TextBlock Text="Action, Romance"/>
+                        <TextBlock Text="{Binding Genre}"/>
             </TextBlock>
             <TextBlock Grid.Row="4"
                        Text="Directors: "
@@ -115,7 +117,7 @@
                        Margin="10 10 10 10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
-                        <TextBlock Text="John, John"/>
+                        <TextBlock Text="{Binding Directors}"/>
             </TextBlock>
             <TextBlock Grid.Row="5"
                        Text="Actors: "
@@ -123,7 +125,7 @@
                        Margin="10 10 10 10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
-                        <TextBlock Text="Wick, Wick"/>
+                        <TextBlock Text="{Binding Actors}"/>
             </TextBlock>
             <Grid Grid.Row="6">
                 <Grid.ColumnDefinitions>
@@ -133,13 +135,16 @@
                     <ColumnDefinition Width="1.25*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0"
-                       Text="Your Rating: "
+                       Text="Your Score: "
                        FontSize="30"
                        Margin="10 10 10 10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
                 </TextBlock>
-                <ComboBox Margin="20"  Grid.Column="1"/>
+                <ComboBox Grid.Column="1" Margin="20"
+                          FontSize="30"
+                          ItemsSource="{Binding ComboBoxScores}"
+                          SelectedItem="{Binding SelectedScore}"/>
                 <Button Grid.Column="2"
                         FontSize="30"
                         Padding="10"

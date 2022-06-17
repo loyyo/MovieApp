@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace ProjektProgramowanie.Stores
 {
-    internal class MoviesStore
+    internal class MovieStore
     {
-        private List<MovieItem> _movieList;
-        public List<MovieItem> MovieList
+        private MovieItem _movie;
+        public MovieItem Movie
         {
-            get => _movieList;
-            set { _movieList = value; }
+            get => _movie;
+            set { _movie = value; }
         }
     }
 }

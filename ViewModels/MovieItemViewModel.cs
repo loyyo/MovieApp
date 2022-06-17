@@ -24,7 +24,7 @@ namespace ProjektProgramowanie.ViewModels
             set { mItem.Description = value; OnPropertyChanged(nameof(Description)); }
         }
 
-        public int Rating
+        public float Rating
         {
             get { return mItem.Rating; }
             set { mItem.Rating = value; OnPropertyChanged(nameof(Rating)); }
@@ -59,7 +59,7 @@ namespace ProjektProgramowanie.ViewModels
             set { mItem.Actors = value; OnPropertyChanged(nameof(Actors)); }
         }
 
-        public MovieItemViewModel(string movieName, string description, int rating, string year, int length, string genre, string directors, string actors)
+        public MovieItemViewModel(string movieName, string description, float rating, string year, int length, string genre, string directors, string actors)
         {
             mItem = new MovieItem(movieName, description, rating, year, length, genre, directors, actors);
         }
