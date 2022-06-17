@@ -31,7 +31,6 @@ namespace ProjektProgramowanie.Commands
             Profile profil = new Profile(string.Empty, string.Empty, string.Empty,
                 string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, new List<HistoryItem>());
             bool correct = false;
-            Trace.WriteLine(_loginViewModel._users._profiles[0]);
 
             foreach (Profile user in _loginViewModel._users._profiles)
             {

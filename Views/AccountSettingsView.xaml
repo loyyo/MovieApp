@@ -14,10 +14,17 @@
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Background" Value="White"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="0 10 0 0" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
         </Style>
         <Style TargetType="DatePicker">
             <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="0 10 0 0" />
             <Setter Property="Height" Value="30" />
             <Setter Property="Background" Value="White"/>
         </Style>

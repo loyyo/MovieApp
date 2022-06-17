@@ -8,14 +8,14 @@ namespace ProjektProgramowanie.Models
 {
     internal class HistoryItem
     {
-        public string MovieName { get; }
-        public string Description { get; }
-        public int Score { get; }
-        public string Year { get; }
-        public int Length { get; }
-        public string Genre { get; }
-        public string List { get; }
-        public string Date { get; }
+        public string MovieName { get; set; }
+        public string Description { get; set; }
+        public int Score { get; set; }
+        public string Year { get; set; }
+        public int Length { get; set; }
+        public string Genre { get; set; }
+        public string List { get; set; }
+        public string Date { get; set; }
 
         public HistoryItem(string movieName, string description, int score, string year, int length, string genre, string list, string date)
         {

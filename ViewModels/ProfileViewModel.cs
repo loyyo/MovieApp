@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace ProjektProgramowanie.ViewModels
 {
@@ -35,6 +37,11 @@ namespace ProjektProgramowanie.ViewModels
                 AverageRating += movie.Score;
             }
             AverageRating /= (MoviesWatched + MoviesPTW);
+            HistoryList = new ObservableCollection<ProfileHistoryViewModel>();
+            foreach (HistoryItem movie in AddedMovies)
+            {
+                HistoryList.Add(new ProfileHistoryViewModel(movie.MovieName, movie.Description, movie.Score, movie.Year, movie.Length, movie.Genre, movie.List, movie.Date));
+            }
         }
 
         private readonly ProfileStore _profile;
@@ -81,6 +88,13 @@ namespace ProjektProgramowanie.ViewModels
         {
             get { return _averageRating; }
             set { _averageRating = value; OnPropertyChanged(nameof(AverageRating)); }
+        }
+
+        private ObservableCollection<ProfileHistoryViewModel> _historyList;
+        public ObservableCollection<ProfileHistoryViewModel> HistoryList
+        {
+            get { return _historyList; }
+            set { _historyList = value; OnPropertyChanged(nameof(HistoryList)); }
         }
     }
 }

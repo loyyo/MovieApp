@@ -9,15 +9,15 @@
     <UserControl.Resources>
         <Style TargetType="TextBox">
             <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="Height" Value="30" />
             <Setter Property="Background" Value="White"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Margin" Value="0 10 0 0" />
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="20" />
             <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
         </Style>
         <Style TargetType="DatePicker">
             <Setter Property="VerticalAlignment" Value="Top"/>
@@ -50,7 +50,8 @@
 
             <TextBlock Text="Login" Grid.Row="0"
                        FontSize="40"
-                       FontWeight="SemiBold"
+                       FontWeight="Bold"
+                       Foreground="DodgerBlue"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"/>
 
@@ -106,7 +107,8 @@
 
             <TextBlock Text="Sign Up" Grid.Row="0"
                        FontSize="40"
-                       FontWeight="SemiBold"
+                       FontWeight="Bold"
+                       Foreground="DodgerBlue"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"/>
             <Separator/>

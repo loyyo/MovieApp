@@ -76,14 +76,15 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
                 <TextBox Grid.Column="1"
-                         Margin="10"/>
+                         Margin="10"
+                         Text="{Binding SearchMovieName}"/>
                 <Button Grid.Column="2"
                         FontSize="25"
                         Width="150"
                         Content="Search"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
-                                           />
+                        Command="{Binding SearchAddedCommand}"/>
             </Grid>
 
             <Grid Grid.Row="1">
@@ -98,17 +99,22 @@
                 <TextBlock Text="Genre:" FontSize="25"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
-                <ComboBox Grid.Column="1" Margin="10"/>
+                <TextBox Grid.Column="1" Margin="10"
+                         Text="{Binding SearchGenre}"/>
                 <TextBlock Grid.Column="2"
                            Text="Year:" FontSize="25"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
-                <ComboBox Grid.Column="3" Margin="10"/>
+                <TextBox Grid.Column="3" Margin="10"
+                         Text="{Binding SearchYear}"/>
                 <TextBlock Grid.Column="4"
                            Text="Your Score:" FontSize="25"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
-                <ComboBox Grid.Column="5" Margin="10"/>
+                <ComboBox Grid.Column="5" Margin="10"
+                          FontSize="20"
+                          ItemsSource="{Binding ComboBoxScores}"
+                          SelectedItem="{Binding SelectedScore}"/>
             </Grid>
         </Grid>
 
@@ -119,13 +125,15 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"
                     Content="Watched Movies"
-                    FontSize="25"/>
+                    FontSize="25"
+                    Command="{Binding ShowWatchedMovies}"/>
             <Button Grid.Column="1"
                     Content="Plan To Watch"
-                    FontSize="25"/>
+                    FontSize="25"
+                    Command="{Binding ShowPTWMovies}"/>
         </Grid>
 
-        <Grid Background="DodgerBlue" Grid.Row="3">
+        <Grid Margin="0 0 -15 0"  Background="DodgerBlue" Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="1*"/>
@@ -173,10 +181,7 @@
                                            />
         </Grid>
 
-        <ListBox Grid.Row="4" IsHitTestVisible="False">
-            <ListItem/>
-            <ListItem/>
-            <ListItem/>
+        <ListBox Grid.Row="4" ItemsSource="{Binding AddedMoviesList}" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="1170" MaxWidth="1170">
@@ -194,31 +199,33 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" FontSize="20" Text="MOVIE NAME"/>
+                                <TextBlock Grid.Row="0" FontSize="20" Text="{Binding MovieName}"/>
                                 <TextBlock Grid.Row="1" FontSize="15"
-                                           Text="VERY VERY VERY VERY LONG DESCRIPTION"/>
+                                           Text="{Binding Description}"/>
                             </Grid>
                             <TextBlock Grid.Column="1"
                                            FontSize="20"
-                                           Text="Scored"
+                                           Text="{Binding Score}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
                             <TextBlock Grid.Column="2"
                                            FontSize="20"
-                                           Text="Year"
+                                           Text="{Binding Year}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
                             <TextBlock Grid.Column="3"
                                            FontSize="20"
-                                           Text="Length"
+                                           Text="{Binding Length}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
-                                           />
+                                           >
+                                <TextBlock Text=" min"/>
+                            </TextBlock>
                             <TextBlock Grid.Column="4"
                                            FontSize="20"
-                                           Text="Genre"
+                                           Text="{Binding Genre}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />

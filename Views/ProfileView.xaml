@@ -62,7 +62,7 @@
                        VerticalAlignment="Center"/>
                 
                 <TextBlock Grid.Row="1"
-                       Text="Image"
+                       Text="{Binding Picture}"
                        FontSize="20"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
@@ -146,11 +146,8 @@
             </Grid>
 
             <Grid Grid.Column="1" Background="DodgerBlue"/>
-
-            <ListBox Grid.Column="2" IsHitTestVisible="False">
-                <ListItem/>
-                <ListItem/>
-                <ListItem/>
+            <ListBox Grid.Column="2" IsHitTestVisible="False"
+                     ItemsSource="{Binding HistoryList}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Width="770" MaxWidth="770">
@@ -164,19 +161,24 @@
                                         <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <TextBlock Grid.Row="0" FontSize="20" Text="MOVIE NAME"/>
+                                    <TextBlock Grid.Row="0" FontSize="20"
+                                               Text="{Binding MovieName}"/>
                                     <Grid Grid.Row="1">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="1.25*"/>
                                             <ColumnDefinition Width="1*"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Grid.Column="0" FontSize="20" Text="Added: Watched"/>
-                                        <TextBlock Grid.Column="1" FontSize="20" Text="Your Score: 10"/>
+                                        <TextBlock Grid.Column="0" FontSize="20" Text="Added: ">
+                                            <TextBlock Text="{Binding List}"/>
+                                        </TextBlock>
+                                        <TextBlock Grid.Column="1" FontSize="20" Text="Your Score: ">
+                                            <TextBlock Text="{Binding Score}"/>
+                                        </TextBlock>
                                     </Grid>
                                 </Grid>
                                 <TextBlock Grid.Column="1"
                                            FontSize="20"
-                                           Text="Date"
+                                           Text="{Binding Date}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
                                            />
