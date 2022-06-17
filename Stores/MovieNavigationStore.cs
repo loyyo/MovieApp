@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjektProgramowanie.Stores
 {
-    internal class NavigationStore
+    internal class MovieNavigationStore
     {
         private BaseViewModel _currentViewModel;
         public BaseViewModel CurrentViewModel
@@ -21,7 +21,14 @@ namespace ProjektProgramowanie.Stores
             }
         }
 
+        public bool IsOpen => CurrentViewModel != null;
+
         public event Action CurrentViewModelChanged;
+
+        public void Close()
+        {
+            CurrentViewModel = null;
+        }
 
         private void OnCurrentViewModelChanged()
         {

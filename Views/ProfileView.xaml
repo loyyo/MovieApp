@@ -52,18 +52,21 @@
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0"
-                       Text="{Binding Username}"
+                       Text="Username: "
                        FontSize="20"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
+                       VerticalAlignment="Center">
+                    <TextBlock Text="{Binding Username}"/>
+                </TextBlock>
                 
                 <TextBlock Grid.Row="1"
-                       Text="{Binding Picture}"
+                       Text="{Binding Description}"
                        FontSize="20"
+                       TextWrapping="Wrap"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
                 

@@ -54,7 +54,7 @@ namespace ProjektProgramowanie.ViewModels
         public string Password => _profile.CurrentProfile.Password;
 
         public string Username => _profile.CurrentProfile.Username;
-        public string Picture => _profile.CurrentProfile.Picture;
+        public string Description => _profile.CurrentProfile.Description;
         public string Name => _profile.CurrentProfile.Name;
         public string Surname => _profile.CurrentProfile.Surname;
         public string Birthday => _profile.CurrentProfile.Birthday;

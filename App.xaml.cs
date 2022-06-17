@@ -18,6 +18,7 @@ namespace ProjektProgramowanie
     public partial class App : Application
     {
         private readonly NavigationStore _navigationStore;
+        private readonly MovieNavigationStore _movieNavigationStore;
         private readonly ProfileStore _profile;
         private readonly MovieStore _movie;
 
@@ -27,6 +28,7 @@ namespace ProjektProgramowanie
         public App()
         {
             _navigationStore = new NavigationStore();
+            _movieNavigationStore = new MovieNavigationStore();
             _profile = new ProfileStore();
             _movie = new MovieStore();
             _moviesList = new Movies();
@@ -39,7 +41,7 @@ namespace ProjektProgramowanie
 
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel(_navigationStore)
+                DataContext = new MainViewModel(_navigationStore, _movieNavigationStore)
             };
             MainWindow.Show();
 

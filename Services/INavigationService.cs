@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektProgramowanie.Models
+namespace ProjektProgramowanie.Services
 {
-    internal class AddPhoto
+    public interface INavigationService
     {
+        void Navigate();
     }
 }

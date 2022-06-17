@@ -7,7 +7,7 @@
     "password": "12345",
     "birthday": "2000-02-26",
     "country": "Polska",
-    "picture": "tutaj trzeba jakoœ ogarn¹æ zdj, ewentualnie mo¿na skipn¹æ ale zdj fajnie wyglada",
+    "description": "VERY VERY LONG AND INTERESTING DESCRIPTION",
     "addedMovies": [
       {
         "movieName": "OnePunchMan",
@@ -40,7 +40,7 @@
     "password": "12345",
     "birthday": "2000-02-26",
     "country": "Polska",
-    "picture": "zdj",
+    "description": "VERY VERY LONG AND INTERESTING DESCRIPTION",
     "addedMovies": [
       {
         "movieName": "OnePunchMan",
