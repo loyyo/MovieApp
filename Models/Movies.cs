@@ -14,7 +14,7 @@ namespace ProjektProgramowanie.Models
 
         public Movies()
         {
-            string fileName = @"C:\Users\Maciek\source\repos\ProjektProgramowanie\Resources\movies.json";
+            string fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Resources\movies.json");
             string jsonText = File.ReadAllText(fileName);
             //System.Globalization.CultureInfo culture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
             //culture.NumberFormat.NumberDecimalSeparator = ".";

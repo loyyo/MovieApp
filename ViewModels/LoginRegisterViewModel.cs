@@ -19,8 +19,15 @@ namespace ProjektProgramowanie.ViewModels
         public LoginRegisterViewModel(Users users, ProfileStore profileStore, NavigationService profileViewNavigationService)
         {
             LoginCommand = new LoginCommand(this, profileStore, profileViewNavigationService);
-            RegisterCommand = new RegisterCommand(this, profileViewNavigationService);
+            RegisterCommand = new RegisterCommand(this, profileStore, profileViewNavigationService);
             _users = users;
+            FirstName = string.Empty;
+            Surname = string.Empty;
+            Username = string.Empty;
+            Email = string.Empty;
+            Password = string.Empty;
+            Birthday = DateTime.Now;
+            Country = string.Empty;
         }
 
         public ICommand LoginCommand { get; }

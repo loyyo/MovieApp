@@ -51,6 +51,7 @@ namespace ProjektProgramowanie
         private MoviePageViewModel CreateMoviePageViewModel()
         {
             return new MoviePageViewModel(
+                _users,
                 _profile,
                 _movie,
                 new NavigationService(_navigationStore, CreateProfileViewModel),
@@ -74,6 +75,8 @@ namespace ProjektProgramowanie
         private AccountSettingsViewModel CreateAccountSettingsViewModel()
         {
             return new AccountSettingsViewModel(
+                _users,
+                _profile,
                 new NavigationService(_navigationStore, CreateProfileViewModel),
                 new NavigationService(_navigationStore, CreateSearchMoviesListViewModel),
                 new NavigationService(_navigationStore, CreateAddedMoviesListViewModel));
@@ -101,7 +104,10 @@ namespace ProjektProgramowanie
 
         private LoginRegisterViewModel CreateLoginRegisterViewModel()
         {
-            return new LoginRegisterViewModel(_users, _profile, new NavigationService(_navigationStore, CreateProfileViewModel));
+            return new LoginRegisterViewModel(
+                _users,
+                _profile,
+                new NavigationService(_navigationStore, CreateProfileViewModel));
         }
 
 

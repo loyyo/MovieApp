@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,15 @@ namespace ProjektProgramowanie.Models
 
         public Users()
         {
-            string fileName = @"C:\Users\Maciek\source\repos\ProjektProgramowanie\Resources\users.json";
+            string fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Resources\users.json");
             string jsonText = File.ReadAllText(fileName);
             _profiles = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Profile>>(jsonText);
+        }
+
+        public void Serialize(List<Profile> profiles)
+        {
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(profiles);
+            File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Resources\users.json"), json);
         }
     }
 }

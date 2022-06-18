@@ -52,6 +52,7 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0"
                        Text="Movie Name: "
@@ -129,8 +130,8 @@
             </TextBlock>
             <Grid Grid.Row="6">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1.25*"/>
                     <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1.5*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1.25*"/>
                 </Grid.ColumnDefinitions>
@@ -141,7 +142,7 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
                 </TextBlock>
-                <ComboBox Grid.Column="1" Margin="20"
+                <ComboBox Grid.Column="1" Margin="15"
                           FontSize="30"
                           ItemsSource="{Binding ComboBoxScores}"
                           SelectedItem="{Binding SelectedScore}"/>
@@ -151,6 +152,7 @@
                         Content="Add to PTW"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
+                        Command="{Binding AddToPTWCommand}"
                         />
                 <Button Grid.Column="3"
                         FontSize="30"
@@ -158,8 +160,18 @@
                         Content="Add to Watched"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
+                        Command="{Binding AddToWatchedCommand}"
                         />
             </Grid>
+            <Button Grid.Row="7"
+                        FontSize="30"
+                        Padding="100 10 100 10"
+                        Content="Delete From List"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        IsEnabled="{Binding DeleteEnabled}"
+                        Command="{Binding DeleteFromListCommand}"
+                        />
         </Grid>
 
     </Grid>

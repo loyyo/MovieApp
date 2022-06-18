@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ProjektProgramowanie.ViewModels
@@ -16,6 +17,7 @@ namespace ProjektProgramowanie.ViewModels
     internal class MoviePageViewModel : BaseViewModel
     {
         public MoviePageViewModel(
+            Users users,
             ProfileStore profileStore,
             MovieStore movieStore,
             NavigationService profileViewNavigationService,
@@ -23,21 +25,13 @@ namespace ProjektProgramowanie.ViewModels
             NavigationService searchMoviesListViewNavigationService,
             NavigationService addedMoviesListViewNavigationService)
         {
+            _users = users;
             _profile = profileStore;
             _movie = movieStore;
             GoToProfileView = new NavigateCommand(profileViewNavigationService);
             GoToAccountSettingsView = new NavigateCommand(accountSettingsViewNavigationService);
             GoToSearchMoviesListView = new NavigateCommand(searchMoviesListViewNavigationService);
             GoToAddedMoviesListView = new NavigateCommand(addedMoviesListViewNavigationService);
-
-            try
-            {
-                _profileMovie = _profile.CurrentProfile.AddedMovies.Where(x => x.MovieName == _movie.Movie.MovieName).First();
-            }
-            catch (Exception ex)
-            {
-                _profileMovie = new HistoryItem(string.Empty, string.Empty, 0, string.Empty, 0, string.Empty, string.Empty, string.Empty);
-            }
 
             MovieName = _movie.Movie.MovieName;
             Description = _movie.Movie.Description;
@@ -47,6 +41,17 @@ namespace ProjektProgramowanie.ViewModels
             Genre = _movie.Movie.Genre;
             Directors = _movie.Movie.Directors;
             Actors = _movie.Movie.Actors;
+
+            try
+            {
+                _profileMovie = _profile.CurrentProfile.AddedMovies.Where(x => x.MovieName == _movie.Movie.MovieName).First();
+                DeleteEnabled = true;
+            }
+            catch (Exception ex)
+            {
+                DeleteEnabled = false;
+                _profileMovie = new HistoryItem(string.Empty, string.Empty, 0, string.Empty, 0, string.Empty, string.Empty, string.Empty);
+            }
 
             if (_profileMovie.Score == 0) SelectedScore = "Select";
             else
@@ -90,6 +95,7 @@ namespace ProjektProgramowanie.ViewModels
                 "(7) Good", "(6) Fine", "(5) Average", "(4) Bad", "(3) Very Bad", "(2) Horrible", "(1) Appalling" };
         }
 
+        private readonly Users _users;
         private readonly ProfileStore _profile;
         private readonly MovieStore _movie;
         private readonly HistoryItem _profileMovie;
@@ -169,6 +175,37 @@ namespace ProjektProgramowanie.ViewModels
             set { _actors = value; OnPropertyChanged(nameof(Actors)); }
         }
 
+        private object _content;
+        public object Content
+        {
+            get { return _content; }
+            set { _content = value; OnPropertyChanged(nameof(Content)); }
+        }
+
+        private bool _deleteEnabled;
+        public bool DeleteEnabled
+        {
+            get { return _deleteEnabled; }
+            set { _deleteEnabled = value; OnPropertyChanged(nameof(DeleteEnabled)); }
+        }
+
+        private RelayCommand? _deleteFromListCommand;
+        public RelayCommand DeleteFromListCommand
+        {
+            get
+            {
+                if (_deleteFromListCommand == null)
+                    _deleteFromListCommand = new RelayCommand(argument =>
+                    {
+                        _profile.CurrentProfile.AddedMovies.Remove(_profileMovie);
+                        _users.Serialize(_users._profiles);
+                        MessageBox.Show("Movie successfully deleted from list", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        DeleteEnabled = false;
+                    }, argument => true);
+                return _deleteFromListCommand;
+            }
+        }
+
         private RelayCommand? _addToPTWCommand;
         public RelayCommand AddToPTWCommand
         {
@@ -177,7 +214,7 @@ namespace ProjektProgramowanie.ViewModels
                 if (_addToPTWCommand == null)
                     _addToPTWCommand = new RelayCommand(argument =>
                     {
-                        //funkcjonalność HERE
+                        ExecuteAddToListCommand("PTW");
                     }, argument => true);
                 return _addToPTWCommand;
             }
@@ -191,9 +228,75 @@ namespace ProjektProgramowanie.ViewModels
                 if (_addToWatchedCommand == null)
                     _addToWatchedCommand = new RelayCommand(argument =>
                     {
-                        //funkcjonalność HERE
+                        ExecuteAddToListCommand("Watched");
                     }, argument => true);
                 return _addToWatchedCommand;
+            }
+        }
+        public void ExecuteAddToListCommand(string ListName)
+        {
+            int YourScore = 0;
+            switch (SelectedScore)
+            {
+                case "Select":
+                    YourScore = 0;
+                    break;
+                case "(1) Appalling":
+                    YourScore = 1;
+                    break;
+                case "(2) Horrible":
+                    YourScore = 2;
+                    break;
+                case "(3) Very Bad":
+                    YourScore = 3;
+                    break;
+                case "(4) Bad":
+                    YourScore = 4;
+                    break;
+                case "(5) Average":
+                    YourScore = 5;
+                    break;
+                case "(6) Fine":
+                    YourScore = 6;
+                    break;
+                case "(7) Good":
+                    YourScore = 7;
+                    break;
+                case "(8) Very Good":
+                    YourScore = 8;
+                    break;
+                case "(9) Great":
+                    YourScore = 9;
+                    break;
+                case "(10) Masterpiece":
+                    YourScore = 10;
+                    break;
+            }
+
+            HistoryItem historyItem = new HistoryItem(
+                MovieName,
+                Description,
+                YourScore,
+                Year,
+                Length,
+                Genre,
+                ListName,
+                DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString()
+                );
+
+            if (YourScore != 0 & !_profile.CurrentProfile.AddedMovies.Contains(_profileMovie))
+            {
+                _profile.CurrentProfile.AddedMovies.Add(historyItem);
+                _users.Serialize(_users._profiles);
+                MessageBox.Show("Movie successfully added", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+            else if (YourScore != 0 & _profile.CurrentProfile.AddedMovies.Contains(_profileMovie))
+            {
+                _profile.CurrentProfile.AddedMovies.Remove(_profileMovie);
+                _profile.CurrentProfile.AddedMovies.Add(historyItem);
+                _users.Serialize(_users._profiles);
+                MessageBox.Show("Score successfully changed", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

@@ -18,7 +18,7 @@ namespace ProjektProgramowanie.Models
         public string Country { get; }
         public string Description { get; }
         public List<HistoryItem> AddedMovies { get; }
-        public string PrintedMovies { get; set; }
+        //public string PrintedMovies { get; set; }
 
         public Profile(string name, string surname, string username, string email, string password, string birthday,
             string country, string description, List<HistoryItem> addedMovies)
@@ -32,11 +32,11 @@ namespace ProjektProgramowanie.Models
             Country = country;
             Description = description;
             AddedMovies = addedMovies;
-            PrintedMovies = string.Empty;
-            foreach (HistoryItem movie in AddedMovies)
-            {
-                PrintedMovies += "\n{\n" + movie.ToString() + "\n}";
-            }
+            //PrintedMovies = string.Empty;
+            //foreach (HistoryItem movie in AddedMovies)
+            //{
+            //    PrintedMovies += "\n{\n" + movie.ToString() + "\n}";
+            //}
         }
 
         //public Profile()
@@ -53,11 +53,11 @@ namespace ProjektProgramowanie.Models
         //    PrintedMovies = string.Empty;
         //}
 
-        public override string ToString()
-        {
-            return $"Name: {Name}\nSurname: {Surname}\nUsername: {Username}\nEmail: {Email}\n" +
-                $"Password: {Password}\nBirthday: {Birthday}\nCountry: {Country}\nPicture: {Description}\n" +
-                $"Added Movies[]: {PrintedMovies}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"Name: {Name}\nSurname: {Surname}\nUsername: {Username}\nEmail: {Email}\n" +
+        //        $"Password: {Password}\nBirthday: {Birthday}\nCountry: {Country}\nPicture: {Description}\n" +
+        //        $"Added Movies[]: {PrintedMovies}";
+        //}
     }
 }
