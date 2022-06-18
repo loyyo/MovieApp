@@ -53,15 +53,15 @@ namespace ProjektProgramowanie.ViewModels
             set { mItem.Directors = value; OnPropertyChanged(nameof(Directors)); }
         }
 
-        public string Actors
+        public string Writers
         {
-            get { return mItem.Actors; }
-            set { mItem.Actors = value; OnPropertyChanged(nameof(Actors)); }
+            get { return mItem.Writers; }
+            set { mItem.Writers = value; OnPropertyChanged(nameof(Writers)); }
         }
 
-        public MovieItemViewModel(string movieName, string description, float rating, string year, int length, string genre, string directors, string actors)
+        public MovieItemViewModel(string movieName, string description, float rating, string year, int length, string genre, string directors, string writers)
         {
-            mItem = new MovieItem(movieName, description, rating, year, length, genre, directors, actors);
+            mItem = new MovieItem(movieName, description, rating, year, length, genre, directors, writers);
         }
     }
 }

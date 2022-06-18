@@ -6,6 +6,7 @@ using ProjektProgramowanie.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,7 @@ namespace ProjektProgramowanie.ViewModels
             Length = _movie.Movie.Length;
             Genre = _movie.Movie.Genre;
             Directors = _movie.Movie.Directors;
-            Actors = _movie.Movie.Actors;
+            Writers = _movie.Movie.Writers;
 
             try
             {
@@ -168,11 +169,11 @@ namespace ProjektProgramowanie.ViewModels
             set { _directors = value; OnPropertyChanged(nameof(Directors)); }
         }
 
-        private string _actors;
-        public string Actors
+        private string _writers;
+        public string Writers
         {
-            get { return _actors; }
-            set { _actors = value; OnPropertyChanged(nameof(Actors)); }
+            get { return _writers; }
+            set { _writers = value; OnPropertyChanged(nameof(Writers)); }
         }
 
         private object _content;
@@ -289,6 +290,7 @@ namespace ProjektProgramowanie.ViewModels
                 _profile.CurrentProfile.AddedMovies.Add(historyItem);
                 _users.Serialize(_users._profiles);
                 MessageBox.Show("Movie successfully added", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                GoToProfileView.Execute(this);
             }
 
             else if (YourScore != 0 & _profile.CurrentProfile.AddedMovies.Contains(_profileMovie))
@@ -297,6 +299,7 @@ namespace ProjektProgramowanie.ViewModels
                 _profile.CurrentProfile.AddedMovies.Add(historyItem);
                 _users.Serialize(_users._profiles);
                 MessageBox.Show("Score successfully changed", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                GoToProfileView.Execute(this);
             }
         }
     }

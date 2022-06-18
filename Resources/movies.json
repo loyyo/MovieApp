@@ -7,7 +7,7 @@
     "length": 100,
     "genre": "Action",
     "Directors": "John",
-    "Actors": "Wick"
+    "Writers": "Wick"
   },
 
   {
@@ -18,7 +18,7 @@
     "length": 100,
     "genre": "Action",
     "Directors": "John",
-    "Actors": "Wick"
+    "Writers": "Wick"
   },
 
   {
@@ -29,7 +29,7 @@
     "length": 100,
     "genre": "Action",
     "Directors": "John",
-    "Actors": "Wick"
+    "Writers": "Wick"
   }
 
  ]

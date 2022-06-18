@@ -15,9 +15,9 @@ namespace ProjektProgramowanie.Models
         public int Length { get; set; }
         public string Genre { get; set; }
         public string Directors { get; set; }
-        public string Actors { get; set; }
+        public string Writers { get; set; }
 
-        public MovieItem(string movieName, string description, float rating, string year, int length, string genre, string directors, string actors)
+        public MovieItem(string movieName, string description, float rating, string year, int length, string genre, string directors, string writers)
         {
             MovieName = movieName;
             Description = description;
@@ -26,13 +26,13 @@ namespace ProjektProgramowanie.Models
             Length = length;
             Genre = genre;
             Directors = directors;
-            Actors = actors;
+            Writers = writers;
         }
 
         public override string ToString()
         {
             return $"Movie Name: {MovieName}\nDescription: {Description}\nRating: {Rating}\n" +
-                $"Year: {Year}\nLength: {Length}\nGenre: {Genre}\nDirectors: {Directors}\nActors: {Actors}";
+                $"Year: {Year}\nLength: {Length}\nGenre: {Genre}\nDirectors: {Directors}\nWriters: {Writers}";
         }
     }
 }

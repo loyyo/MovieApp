@@ -121,12 +121,12 @@
                         <TextBlock Text="{Binding Directors}"/>
             </TextBlock>
             <TextBlock Grid.Row="5"
-                       Text="Actors: "
+                       Text="Writers: "
                        FontSize="30"
                        Margin="10 10 10 10"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
-                        <TextBlock Text="{Binding Actors}"/>
+                        <TextBlock Text="{Binding Writers}"/>
             </TextBlock>
             <Grid Grid.Row="6">
                 <Grid.ColumnDefinitions>
