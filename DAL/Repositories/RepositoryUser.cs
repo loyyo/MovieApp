@@ -43,5 +43,23 @@ namespace ProjektProgramowanie.DAL.Repositories
             }
             return state;
         }
+
+        public static bool EditUserInDB(User user, int userID)
+        {
+            bool state = false;
+            using (var connection = DBConnection.Instance.Connection)
+            {
+                string EDIT_USER = $"UPDATE user SET Name='{user.Name}', Last_name='{user.Last_Name}', " +
+                    $"Description='{user.Description}', Birthday='{user.Birthday}', Country='{user.Country}' WHERE Id={userID}";
+
+                MySqlCommand command = new MySqlCommand(EDIT_USER, connection);
+                connection.Open();
+                var n = command.ExecuteNonQuery();
+                if (n == 1) state = true;
+
+                connection.Close();
+            }
+            return state;
+        }
     }
 }

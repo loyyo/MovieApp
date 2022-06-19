@@ -32,9 +32,6 @@ namespace ProjektProgramowanie.Models
                 string writer = writers.Where(w => w.Id == m.Id_writer).First().writer;
                 MovieItem movie = new MovieItem(m.Title, m.Description, m.Rating, m.Year, m.Length, genre, director, writer);
                 _moviesList.Add(movie);
-
-                //Trace.WriteLine(movie);
-                //Trace.WriteLine("\n\n");
             }
 
             ////////////////////////////// ------------------------------ USERS ------------------------------ //////////////////////////////
@@ -69,7 +66,7 @@ namespace ProjektProgramowanie.Models
                     userAddedMovies.Add(aMovie);
                 }
 
-                Profile profil = new Profile(u.Name, u.Last_Name, username, email, password, u.Birthday, u.Country, u.Description, userAddedMovies);
+                Profile profil = new Profile(u.Name, u.Last_Name, username, email, password, u.Birthday, u.Country, u.Description, userAddedMovies, u.Id);
                 _profiles.Add(profil);
             }
 

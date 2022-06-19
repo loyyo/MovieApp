@@ -43,5 +43,23 @@ namespace ProjektProgramowanie.DAL.Repositories
             }
             return state;
         }
+
+        public static bool EditAuthInDB(Auth auth, int authID)
+        {
+            bool state = false;
+            using (var connection = DBConnection.Instance.Connection)
+            {
+                string EDIT_AUTH = $"UPDATE auth SET Username='{auth.Username}', Email='{auth.Email}', " +
+                    $"Password='{auth.Password}' WHERE Id={authID}";
+
+                MySqlCommand command = new MySqlCommand(EDIT_AUTH, connection);
+                connection.Open();
+                var n = command.ExecuteNonQuery();
+                if (n == 1) state = true;
+
+                connection.Close();
+            }
+            return state;
+        }
     }
 }

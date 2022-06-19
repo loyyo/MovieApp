@@ -26,5 +26,20 @@ namespace ProjektProgramowanie.DAL.Entities
             Email = reader["Email"].ToString();
             Password = reader["Password"].ToString();
         }
+
+        public Auth(string username, string email, string password)
+        {
+            Username = username.Trim();
+            Email = email.Trim();
+            Password = password.Trim();
+        }
+
+        public Auth(Auth auth)
+        {
+            Id = auth.Id;
+            Username = auth.Username;
+            Email = auth.Email;
+            Password = auth.Password;
+        }
     }
 }

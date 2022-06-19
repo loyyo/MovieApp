@@ -44,19 +44,21 @@ namespace ProjektProgramowanie.DAL.Repositories
             return state;
         }
 
-        public static bool DeleteAddedMovieFromDB(AddedMovies addedMovie)
-        {
-            bool state = false;
-            using (var connection = DBConnection.Instance.Connection)
-            {
-                MySqlCommand command = new MySqlCommand($"{ADD_ADDEDMOVIE} {addedMovie.ToInsert()}", connection);
-                connection.Open();
-                var id = command.ExecuteNonQuery();
-                state = true;
-                addedMovie.Id = (sbyte)command.LastInsertedId;
-                connection.Close();
-            }
-            return state;
-        }
+        ////////// TODO:
+
+        //public static bool DeleteAddedMovieFromDB(AddedMovies addedMovie)
+        //{
+        //    bool state = false;
+        //    using (var connection = DBConnection.Instance.Connection)
+        //    {
+        //        MySqlCommand command = new MySqlCommand($"{ADD_ADDEDMOVIE} {addedMovie.ToInsert()}", connection);
+        //        connection.Open();
+        //        var id = command.ExecuteNonQuery();
+        //        state = true;
+        //        addedMovie.Id = (sbyte)command.LastInsertedId;
+        //        connection.Close();
+        //    }
+        //    return state;
+        //}
     }
 }

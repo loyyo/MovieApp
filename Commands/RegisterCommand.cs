@@ -1,4 +1,6 @@
-﻿using ProjektProgramowanie.Models;
+﻿using ProjektProgramowanie.DAL.Entities;
+using ProjektProgramowanie.DAL.Repositories;
+using ProjektProgramowanie.Models;
 using ProjektProgramowanie.Services;
 using ProjektProgramowanie.Stores;
 using ProjektProgramowanie.ViewModels;
@@ -10,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using static ProjektProgramowanie.Services.PasswordHashService;
 
 namespace ProjektProgramowanie.Commands
 {
@@ -39,7 +42,8 @@ namespace ProjektProgramowanie.Commands
                 _registerViewModel.Birthday.ToShortDateString(),
                 _registerViewModel.Country,
                 "Tutaj jest opis",
-                new List<HistoryItem>());
+                new List<HistoryItem>(),
+                0);
 
             if (_registerViewModel.FirstName == null | _registerViewModel.FirstName == string.Empty)
             {
@@ -80,13 +84,24 @@ namespace ProjektProgramowanie.Commands
 
             if (!exists)
             {
-                _registerViewModel._users._profiles.Add(profil);
+                var hash = SecurePasswordHasher.Hash(profil.Password);
+                profil.Password = hash;
 
-                //_registerViewModel._users.Serialize(_registerViewModel._users._profiles);
+                var auth = new Auth(profil.Username, profil.Email, hash);
+                if (RepositoryAuth.AddAuthToDB(auth))
+                {
+                    string[] splitBirthday = profil.Birthday.Split(".");
+                    string correctBirthday = splitBirthday[2] + "-" + splitBirthday[1] + "-" + splitBirthday[0];
 
-                _profileStore.CurrentProfile = profil;
-                _profileViewNavigationService.Navigate();
-                MessageBox.Show("Registration Successful :)", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    int id_auth = RepositoryAuth.GetAllAuth().OrderByDescending(i => i.Id).First().Id;
+                    var user = new User(id_auth, profil.Name, profil.Surname, profil.Description, correctBirthday, profil.Country);
+                    if (RepositoryUser.AddUserToDB(user))
+                    {
+                        _profileStore.CurrentProfile = profil;
+                        _profileViewNavigationService.Navigate();
+                        MessageBox.Show("Registration Successful :)", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
             }
             else if (exists) MessageBox.Show("A user with this email/username already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }

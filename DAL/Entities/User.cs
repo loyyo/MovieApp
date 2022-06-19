@@ -32,5 +32,26 @@ namespace ProjektProgramowanie.DAL.Entities
             Birthday = reader["Birthday"].ToString().Substring(0, 10);
             Country = reader["Country"].ToString();
         }
+
+        public User(int id_auth, string name, string last_name, string description, string birthday, string country)
+        {
+            Id_auth = id_auth;
+            Name = name.Trim();
+            Last_Name = last_name.Trim();
+            Description = description.Trim();
+            Birthday = birthday.Trim();
+            Country = country.Trim();
+        }
+
+        public User(User user)
+        {
+            Id = user.Id;
+            Id_auth = user.Id_auth;
+            Name = user.Name;
+            Last_Name = user.Last_Name;
+            Description = user.Description;
+            Birthday = user.Birthday;
+            Country = user.Country;
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using static ProjektProgramowanie.Services.PasswordHashService;
 
 namespace ProjektProgramowanie.Commands
 {
@@ -29,12 +30,12 @@ namespace ProjektProgramowanie.Commands
         {
 
             Profile profil = new Profile(string.Empty, string.Empty, string.Empty,
-                string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, new List<HistoryItem>());
+                string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, new List<HistoryItem>(), 0);
             bool correct = false;
 
             foreach (Profile user in _loginViewModel._users._profiles)
             {
-                if (_loginViewModel.LoginPassword == user.Password &
+                    if (SecurePasswordHasher.Verify(_loginViewModel.LoginPassword, user.Password) &
                     (_loginViewModel.LoginUsernameOrEmail == user.Username | _loginViewModel.LoginUsernameOrEmail == user.Email))
                     { correct = true; profil = user; }
             }

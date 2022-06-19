@@ -44,19 +44,21 @@ namespace ProjektProgramowanie.DAL.Repositories
             return state;
         }
 
-        public static bool DeleteReviewFromDB(Review review)
-        {
-            bool state = false;
-            using (var connection = DBConnection.Instance.Connection)
-            {
-                MySqlCommand command = new MySqlCommand($"{ADD_REVIEW} {review.ToInsert()}", connection);
-                connection.Open();
-                var id = command.ExecuteNonQuery();
-                state = true;
-                review.Id = (sbyte)command.LastInsertedId;
-                connection.Close();
-            }
-            return state;
-        }
+        ////////// TODO:
+        
+        //public static bool DeleteReviewFromDB(Review review)
+        //{
+        //    bool state = false;
+        //    using (var connection = DBConnection.Instance.Connection)
+        //    {
+        //        MySqlCommand command = new MySqlCommand($"{ADD_REVIEW} {review.ToInsert()}", connection);
+        //        connection.Open();
+        //        var id = command.ExecuteNonQuery();
+        //        state = true;
+        //        review.Id = (sbyte)command.LastInsertedId;
+        //        connection.Close();
+        //    }
+        //    return state;
+        //}
     }
 }
