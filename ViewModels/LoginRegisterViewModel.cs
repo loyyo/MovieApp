@@ -14,9 +14,9 @@ namespace ProjektProgramowanie.ViewModels
 {
     internal class LoginRegisterViewModel : BaseViewModel
     {
-        public Users _users;
+        public Baza _users;
 
-        public LoginRegisterViewModel(Users users, ProfileStore profileStore, NavigationService profileViewNavigationService)
+        public LoginRegisterViewModel(Baza users, ProfileStore profileStore, NavigationService profileViewNavigationService)
         {
             LoginCommand = new LoginCommand(this, profileStore, profileViewNavigationService);
             RegisterCommand = new RegisterCommand(this, profileStore, profileViewNavigationService);

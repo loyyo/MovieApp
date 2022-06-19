@@ -81,7 +81,9 @@ namespace ProjektProgramowanie.Commands
             if (!exists)
             {
                 _registerViewModel._users._profiles.Add(profil);
-                _registerViewModel._users.Serialize(_registerViewModel._users._profiles);
+
+                //_registerViewModel._users.Serialize(_registerViewModel._users._profiles);
+
                 _profileStore.CurrentProfile = profil;
                 _profileViewNavigationService.Navigate();
                 MessageBox.Show("Registration Successful :)", "Success", MessageBoxButton.OK, MessageBoxImage.Information);

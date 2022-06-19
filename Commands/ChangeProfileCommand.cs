@@ -98,7 +98,7 @@ namespace ProjektProgramowanie.Commands
             {
                 _accountSettingsViewModel._users._profiles.Remove(_profileStore.CurrentProfile);
                 _accountSettingsViewModel._users._profiles.Add(profil);
-                _accountSettingsViewModel._users.Serialize(_accountSettingsViewModel._users._profiles);
+                //_accountSettingsViewModel._users.Serialize(_accountSettingsViewModel._users._profiles);
                 _profileStore.CurrentProfile = profil;
                 MessageBox.Show("Profile changed :)", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 _profileViewNavigationService.Navigate();

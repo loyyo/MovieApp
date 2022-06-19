@@ -202,14 +202,24 @@
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Row="0" FontSize="20" Text="{Binding MovieName}"/>
                                 <TextBlock Grid.Row="1" FontSize="15"
-                                           Text="{Binding Description}"/>
+                                           Text="{Binding Description}" TextWrapping="Wrap"/>
                             </Grid>
-                            <TextBlock Grid.Column="1"
-                                           FontSize="20"
-                                           Text="{Binding Score}"
-                                           VerticalAlignment="Center"
-                                           HorizontalAlignment="Center"
-                                           />
+                            <TextBlock Grid.Column="1" FontSize="20"
+                                       VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Text" Value="{Binding Score}"/>
+                                        <Style.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding Score}" Value="0"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Text" Value="?"/>
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                             <TextBlock Grid.Column="2"
                                            FontSize="20"
                                            Text="{Binding Year}"

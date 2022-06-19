@@ -118,7 +118,7 @@
             </Grid>
         </Grid>
 
-        <Grid Margin="0 0 -15 0" Background="DodgerBlue" Grid.Row="2">
+        <Grid Background="DodgerBlue" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="1*"/>
@@ -169,7 +169,7 @@
         <ListBox Grid.Row="3" ItemsSource="{Binding AllMoviesList}" SelectedItem="{Binding SelectedItem}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Width="1170" MaxWidth="1170">
+                    <StackPanel Width="1150" MaxWidth="1150">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="6*"/>
@@ -186,7 +186,7 @@
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Row="0" FontSize="20" Text="{Binding MovieName}"/>
                                 <TextBlock Grid.Row="1" FontSize="15"
-                                           Text="{Binding Description}"/>
+                                           Text="{Binding Description}" TextWrapping="Wrap"/>
                             </Grid>
                             <TextBlock Grid.Column="1"
                                            FontSize="20"

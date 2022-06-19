@@ -17,7 +17,7 @@ namespace ProjektProgramowanie.ViewModels
     internal class SearchMoviesListViewModel : BaseViewModel
     {
         public SearchMoviesListViewModel(
-            Movies movies,
+            Baza movies,
             MovieStore movieStore,
             NavigationService movieNavigationService,
             NavigationService profileViewNavigationService,
@@ -41,7 +41,7 @@ namespace ProjektProgramowanie.ViewModels
         }
 
         private readonly NavigationService _movieNavigationService;
-        private readonly Movies _movies;
+        private readonly Baza _movies;
         private readonly MovieStore _movieStore;
 
         public ICommand GoToProfileView { get; }

@@ -6,19 +6,19 @@
              xmlns:local="clr-namespace:ProjektProgramowanie.Views"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1200">
-    
+
     <UserControl.Resources>
         <Style TargetType="MenuItem">
             <Setter Property="Background" Value="DodgerBlue"/>
         </Style>
     </UserControl.Resources>
-    
+
     <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="18*"/>
         </Grid.RowDefinitions>
-        
+
         <Grid Grid.Row="0" Background="DodgerBlue">
             <TextBlock Text="MovieApp"
                        FontSize="30"
@@ -62,14 +62,14 @@
                        VerticalAlignment="Center">
                     <TextBlock Text="{Binding Username}"/>
                 </TextBlock>
-                
+
                 <TextBlock Grid.Row="1"
                        Text="{Binding Description}"
                        FontSize="20"
                        TextWrapping="Wrap"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
-                
+
                 <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -175,7 +175,21 @@
                                             <TextBlock Text="{Binding List}"/>
                                         </TextBlock>
                                         <TextBlock Grid.Column="1" FontSize="20" Text="Your Score: ">
-                                            <TextBlock Text="{Binding Score}"/>
+                                            <TextBlock>
+                                                <TextBlock.Style>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Text" Value="{Binding Score}"/>
+                                                        <Style.Triggers>
+                                                            <MultiDataTrigger>
+                                                                <MultiDataTrigger.Conditions>
+                                                                    <Condition Binding="{Binding Score}" Value="0"/>
+                                                                </MultiDataTrigger.Conditions>
+                                                                <Setter Property="Text" Value="?"/>
+                                                            </MultiDataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
                                         </TextBlock>
                                     </Grid>
                                 </Grid>

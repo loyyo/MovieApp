@@ -1,1 +1,120 @@
-[{"Name":"Maciek","Surname":"Wiencis","Username":"loyyo","Email":"maciejwiencis262@gmail.com","Password":"12345","Birthday":"26.02.2000","Country":"Polska","Description":"VERY VERY LONG AND INTERESTING DESCRIPTION","AddedMovies":[{"MovieName":"OnePunchMan","Description":"He hits hard","Score":9,"Year":"2000","Length":100,"Genre":"Action","List":"Watched","Date":"15.06.2022 17:47:04"},{"MovieName":"Not OPM","Description":"He hits hard","Score":8,"Year":"2000","Length":100,"Genre":"Action","List":"Watched","Date":"15.06.2022 17:47:04"}]},{"Name":"XD","Surname":"XD","Username":"XDXD","Email":"XD@gmail.com","Password":"XD123","Birthday":"26.02.2000","Country":"XD","Description":"Tutaj jest opis","AddedMovies":[]},{"Name":"Maciej","Surname":"Wiencis","Username":"Loy","Email":"maciejwiencis2622@gmail.com","Password":"Loy123","Birthday":"26.02.2000","Country":"Poland","Description":"Very cool description","AddedMovies":[{"MovieName":"XDDDDD","Description":"He hits hard","Score":5,"Year":"2000","Length":100,"Genre":"Action","List":"PTW","Date":"19.06.2022 00:53:03"},{"MovieName":"OnePunchMan","Description":"He hits hard","Score":3,"Year":"2000","Length":100,"Genre":"Action","List":"PTW","Date":"19.06.2022 01:01:04"}]},{"Name":"Agnieszka","Surname":"Lutecka","Username":"nessy2102","Email":"nessy2102@gmail.com","Password":"Nessy1","Birthday":"21.02.2001","Country":"Poland","Description":"Tutaj jest opis","AddedMovies":[{"MovieName":"XDDDDD","Description":"He hits hard","Score":4,"Year":"2000","Length":100,"Genre":"Action","List":"Watched","Date":"19.06.2022 00:41:16"},{"MovieName":"Not OPM","Description":"He hits hard","Score":8,"Year":"2000","Length":100,"Genre":"Action","List":"PTW","Date":"19.06.2022 00:40:50"}]}]
+[
+  
+  {
+    "Name": "Maciek",
+    "Surname": "Wiencis",
+    "Username": "loyyo",
+    "Email": "maciejwiencis262@gmail.com",
+    "Password": "12345",
+    "Birthday": "26.02.2000",
+    "Country": "Polska",
+    "Description": "VERY VERY LONG AND INTERESTING DESCRIPTION",
+    "AddedMovies": [
+      {
+        "MovieName": "OnePunchMan",
+        "Description": "He hits hard",
+        "Score": 9,
+        "Year": "2000",
+        "Length": 100,
+        "Genre": "Action",
+        "List": "Watched",
+        "Date": "15.06.2022 17:47:04"
+      },
+      {
+        "MovieName": "Not OPM",
+        "Description": "He hits hard",
+        "Score": 8,
+        "Year": "2000",
+        "Length": 100,
+        "Genre": "Action",
+        "List": "PTW",
+        "Date": "15.06.2022 17:47:04"
+      }
+    ]
+  },
+  {
+    "Name": "XD",
+    "Surname": "XD",
+    "Username": "XDXD",
+    "Email": "XD@gmail.com",
+    "Password": "XD123",
+    "Birthday": "26.02.2000",
+    "Country": "XD",
+    "Description": "Tutaj jest opis",
+    "AddedMovies": []
+  },
+  {
+    "Name": "Maciej",
+    "Surname": "Wiencis",
+    "Username": "Loy",
+    "Email": "maciejwiencis2622@gmail.com",
+    "Password": "Loy123",
+    "Birthday": "26.02.2000",
+    "Country": "Poland",
+    "Description": "Very cool description",
+    "AddedMovies": [
+      {
+        "MovieName": "OnePunchMan",
+        "Description": "He hits hard",
+        "Score": 3,
+        "Year": "2000",
+        "Length": 100,
+        "Genre": "Action",
+        "List": "PTW",
+        "Date": "19.06.2022 01:01:04"
+      },
+      {
+        "MovieName": "XDDDDD",
+        "Description": "He hits hard",
+        "Score": 5,
+        "Year": "2000",
+        "Length": 100,
+        "Genre": "Action",
+        "List": "PTW",
+        "Date": "19.06.2022 00:53:03"
+      },
+      {
+        "MovieName": "Not OPM",
+        "Description": "He hits hard",
+        "Score": 0,
+        "Year": "2000",
+        "Length": 100,
+        "Genre": "Action",
+        "List": "PTW",
+        "Date": "19.06.2022 14:20:22"
+      }
+    ]
+  },
+  {
+    "Name": "Agnieszka",
+    "Surname": "Lutecka",
+    "Username": "nessy2102",
+    "Email": "nessy2102@gmail.com",
+    "Password": "Nessy1",
+    "Birthday": "21.02.2001",
+    "Country": "Poland",
+    "Description": "Tutaj jest opis",
+    "AddedMovies": [
+      {
+        "MovieName": "XDDDDD",
+        "Description": "He hits hard",
+        "Score": 4,
+        "Year": "2000",
+        "Length": 100,
+        "Genre": "Action",
+        "List": "Watched",
+        "Date": "19.06.2022 00:41:16"
+      },
+      {
+        "MovieName": "Not OPM",
+        "Description": "He hits hard",
+        "Score": 8,
+        "Year": "2000",
+        "Length": 100,
+        "Genre": "Action",
+        "List": "PTW",
+        "Date": "19.06.2022 00:40:50"
+      }
+    ]
+  }
+]

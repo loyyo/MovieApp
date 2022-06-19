@@ -18,7 +18,7 @@ namespace ProjektProgramowanie.ViewModels
     internal class MoviePageViewModel : BaseViewModel
     {
         public MoviePageViewModel(
-            Users users,
+            Baza users,
             ProfileStore profileStore,
             MovieStore movieStore,
             NavigationService profileViewNavigationService,
@@ -96,7 +96,7 @@ namespace ProjektProgramowanie.ViewModels
                 "(7) Good", "(6) Fine", "(5) Average", "(4) Bad", "(3) Very Bad", "(2) Horrible", "(1) Appalling" };
         }
 
-        private readonly Users _users;
+        private readonly Baza _users;
         private readonly ProfileStore _profile;
         private readonly MovieStore _movie;
         private readonly HistoryItem _profileMovie;
@@ -199,7 +199,7 @@ namespace ProjektProgramowanie.ViewModels
                     _deleteFromListCommand = new RelayCommand(argument =>
                     {
                         _profile.CurrentProfile.AddedMovies.Remove(_profileMovie);
-                        _users.Serialize(_users._profiles);
+                        //_users.Serialize(_users._profiles);
                         MessageBox.Show("Movie successfully deleted from list", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                         DeleteEnabled = false;
                     }, argument => true);
@@ -285,19 +285,19 @@ namespace ProjektProgramowanie.ViewModels
                 DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString()
                 );
 
-            if (YourScore != 0 & !_profile.CurrentProfile.AddedMovies.Contains(_profileMovie))
+            if (!_profile.CurrentProfile.AddedMovies.Contains(_profileMovie))
             {
                 _profile.CurrentProfile.AddedMovies.Add(historyItem);
-                _users.Serialize(_users._profiles);
+                //_users.Serialize(_users._profiles);
                 MessageBox.Show("Movie successfully added", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 GoToProfileView.Execute(this);
             }
 
-            else if (YourScore != 0 & _profile.CurrentProfile.AddedMovies.Contains(_profileMovie))
+            else if (_profile.CurrentProfile.AddedMovies.Contains(_profileMovie))
             {
                 _profile.CurrentProfile.AddedMovies.Remove(_profileMovie);
                 _profile.CurrentProfile.AddedMovies.Add(historyItem);
-                _users.Serialize(_users._profiles);
+                //_users.Serialize(_users._profiles);
                 MessageBox.Show("Score successfully changed", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 GoToProfileView.Execute(this);
             }

@@ -30,13 +30,15 @@ namespace ProjektProgramowanie.ViewModels
             MoviesWatched = 0;
             MinutesWatched = 0;
             AverageRating = 0;
+            int MoviesRated = 0;
             foreach (var movie in _profile.CurrentProfile.AddedMovies)
             {
                 if (movie.List == "Watched") { MoviesWatched++; MinutesWatched += movie.Length; }
                 if (movie.List == "PTW") MoviesPTW++;
+                if (movie.Score != 0) MoviesRated++;
                 AverageRating += movie.Score;
             }
-            if (AverageRating > 0) AverageRating /= (MoviesWatched + MoviesPTW);
+            if (AverageRating > 0) AverageRating /= MoviesRated;
             HistoryList = new ObservableCollection<ProfileHistoryViewModel>();
             AddedMovies.Sort((x, y) => DateTime.Compare(DateTime.Parse(y.Date), DateTime.Parse(x.Date)));
             foreach (HistoryItem movie in AddedMovies)

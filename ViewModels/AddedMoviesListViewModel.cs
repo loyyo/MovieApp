@@ -18,7 +18,7 @@ namespace ProjektProgramowanie.ViewModels
     {
         public AddedMoviesListViewModel(
             ProfileStore profileStore,
-            Movies movies,
+            Baza movies,
             MovieStore movieStore,
             NavigationService movieNavigationService,
             NavigationService profileViewNavigationService,
@@ -47,7 +47,7 @@ namespace ProjektProgramowanie.ViewModels
 
         private readonly NavigationService _movieNavigationService;
         private readonly ProfileStore _profile;
-        private readonly Movies _movies;
+        private readonly Baza _movies;
         private readonly MovieStore _movieStore;
 
         public ICommand GoToProfileView { get; }
@@ -77,11 +77,11 @@ namespace ProjektProgramowanie.ViewModels
             set { _selectedScore = value; OnPropertyChanged(nameof(SelectedScore)); }
         }
 
-        private string _serachMovieName;
+        private string _searchMovieName;
         public string SearchMovieName
         {
-            get { return _serachMovieName; }
-            set { _serachMovieName = value; OnPropertyChanged(nameof(SearchMovieName)); }
+            get { return _searchMovieName; }
+            set { _searchMovieName = value; OnPropertyChanged(nameof(SearchMovieName)); }
         }
 
         private string _searchYear;

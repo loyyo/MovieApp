@@ -22,8 +22,7 @@ namespace ProjektProgramowanie
         private readonly ProfileStore _profile;
         private readonly MovieStore _movie;
 
-        private readonly Movies _moviesList;
-        private readonly Users _users;
+        private readonly Baza _baza;
 
         public App()
         {
@@ -31,8 +30,7 @@ namespace ProjektProgramowanie
             _movieNavigationStore = new MovieNavigationStore();
             _profile = new ProfileStore();
             _movie = new MovieStore();
-            _moviesList = new Movies();
-            _users = new Users();
+            _baza = new Baza();
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -51,7 +49,7 @@ namespace ProjektProgramowanie
         private MoviePageViewModel CreateMoviePageViewModel()
         {
             return new MoviePageViewModel(
-                _users,
+                _baza,
                 _profile,
                 _movie,
                 new NavigationService(_navigationStore, CreateProfileViewModel),
@@ -64,7 +62,7 @@ namespace ProjektProgramowanie
         {
             return new AddedMoviesListViewModel(
                 _profile,
-                _moviesList,
+                _baza,
                 _movie,
                 new NavigationService(_navigationStore, CreateMoviePageViewModel),
                 new NavigationService(_navigationStore, CreateProfileViewModel),
@@ -75,7 +73,7 @@ namespace ProjektProgramowanie
         private AccountSettingsViewModel CreateAccountSettingsViewModel()
         {
             return new AccountSettingsViewModel(
-                _users,
+                _baza,
                 _profile,
                 new NavigationService(_navigationStore, CreateProfileViewModel),
                 new NavigationService(_navigationStore, CreateSearchMoviesListViewModel),
@@ -85,7 +83,7 @@ namespace ProjektProgramowanie
         private SearchMoviesListViewModel CreateSearchMoviesListViewModel()
         {
             return new SearchMoviesListViewModel(
-                _moviesList,
+                _baza,
                 _movie,
                 new NavigationService(_navigationStore, CreateMoviePageViewModel),
                 new NavigationService(_navigationStore, CreateProfileViewModel),
@@ -105,7 +103,7 @@ namespace ProjektProgramowanie
         private LoginRegisterViewModel CreateLoginRegisterViewModel()
         {
             return new LoginRegisterViewModel(
-                _users,
+                _baza,
                 _profile,
                 new NavigationService(_navigationStore, CreateProfileViewModel));
         }

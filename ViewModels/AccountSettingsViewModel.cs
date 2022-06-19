@@ -14,9 +14,9 @@ namespace ProjektProgramowanie.ViewModels
 {
     internal class AccountSettingsViewModel : BaseViewModel
     {
-        public Users _users;
+        public Baza _users;
         public AccountSettingsViewModel(
-            Users users,
+            Baza users,
             ProfileStore profileStore,
             NavigationService profileViewNavigationService,
             NavigationService searchMoviesListViewNavigationService,
