@@ -31,7 +31,7 @@ namespace ProjektProgramowanie.ViewModels
             MinutesWatched = 0;
             AverageRating = 0;
             int MoviesRated = 0;
-            foreach (var movie in _profile.CurrentProfile.AddedMovies)
+            foreach (var movie in AddedMovies)
             {
                 if (movie.List == "Watched") { MoviesWatched++; MinutesWatched += movie.Length; }
                 if (movie.List == "PTW") MoviesPTW++;

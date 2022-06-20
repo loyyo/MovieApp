@@ -13,11 +13,10 @@ namespace ProjektProgramowanie.DAL.Entities
         public int Id_movie;
         public int Id_user;
         public int Rate;
-        public string Comment;
 
         public string ToInsert()
         {
-            return $"('{Id_movie}', '{Id_user}', '{Rate}', '{Comment}')";
+            return $"('{Id_movie}', '{Id_user}', '{Rate}')";
         }
 
         public Review(MySqlDataReader reader)
@@ -26,7 +25,6 @@ namespace ProjektProgramowanie.DAL.Entities
             Id_movie = int.Parse(reader["Id_movie"].ToString());
             Id_user = int.Parse(reader["Id_user"].ToString());
             Rate = int.Parse(reader["Rate"].ToString());
-            Comment = reader["Comment"].ToString();
         }
 
         public Review(int id_movie, int id_user, int rate)
@@ -34,7 +32,6 @@ namespace ProjektProgramowanie.DAL.Entities
             Id_movie = id_movie;
             Id_user = id_user;
             Rate = rate;
-            Comment = string.Empty;
         }
 
         public Review(Review review)
@@ -43,7 +40,6 @@ namespace ProjektProgramowanie.DAL.Entities
             Id_movie=review.Id_movie;
             Id_user=review.Id_user;
             Rate = review.Rate;
-            Comment = review.Comment;
         }
 
         public override string ToString()

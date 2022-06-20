@@ -45,10 +45,12 @@ namespace ProjektProgramowanie.ViewModels
 
         }
 
+        private readonly AddedMoviesModel _addedMoviesModel = new AddedMoviesModel();
         private readonly NavigationService _movieNavigationService;
         private readonly ProfileStore _profile;
         private readonly Baza _movies;
         private readonly MovieStore _movieStore;
+
 
         public ICommand GoToProfileView { get; }
         public ICommand GoToAccountSettingsView { get; }
@@ -113,13 +115,7 @@ namespace ProjektProgramowanie.ViewModels
                 if (_showWatchedMovies == null)
                     _showWatchedMovies = new RelayCommand(argument =>
                     {
-                        AddedMoviesList.Clear();
-                        foreach (HistoryItem movie in AddedMovies.OrderByDescending(m => m.Score))
-                        {
-                            if (movie.List == "Watched")
-                                AddedMoviesList.Add(new ProfileHistoryViewModel
-                                    (movie.MovieName, movie.Description, movie.Score, movie.Year, movie.Length, movie.Genre, movie.List, movie.Date));
-                        }
+                        _addedMoviesModel.ShowMoviesFromList(AddedMoviesList, AddedMovies, "Watched");
                     }, argument => true);
                 return _showWatchedMovies;
             }
@@ -133,13 +129,7 @@ namespace ProjektProgramowanie.ViewModels
                 if (_showPTWMovies == null)
                     _showPTWMovies = new RelayCommand(argument =>
                     {
-                        AddedMoviesList.Clear();
-                        foreach (HistoryItem movie in AddedMovies.OrderByDescending(m => m.Score))
-                        {
-                            if (movie.List == "PTW")
-                                AddedMoviesList.Add(new ProfileHistoryViewModel
-                                    (movie.MovieName, movie.Description, movie.Score, movie.Year, movie.Length, movie.Genre, movie.List, movie.Date));
-                        }
+                        _addedMoviesModel.ShowMoviesFromList(AddedMoviesList, AddedMovies, "PTW");
                     }, argument => true);
                 return _showPTWMovies;
             }

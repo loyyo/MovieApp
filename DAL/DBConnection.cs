@@ -32,7 +32,6 @@ namespace ProjektProgramowanie.DAL
             stringBuilder.Database = Settings1.Default.database;
             stringBuilder.Port = Settings1.Default.port;
             stringBuilder.Password = Settings1.Default.passwd;
-
         }
     }
 }

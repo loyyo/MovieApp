@@ -11,7 +11,7 @@ namespace ProjektProgramowanie.DAL.Repositories
     internal class RepositoryReview
     {
         private const string ALL_REVIEWS = "SELECT * FROM review";
-        private const string ADD_REVIEW = "INSERT INTO `review`(`Id_movie`,`Id_user`,`Rate`, `Comment`) VALUES ";
+        private const string ADD_REVIEW = "INSERT INTO `review`(`Id_movie`,`Id_user`,`Rate`) VALUES ";
 
         public static List<Review> GetAllReviews()
         {
