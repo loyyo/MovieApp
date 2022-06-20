@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ProjektProgramowanie.ViewModels;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +20,7 @@ namespace ProjektProgramowanie.Models
         public string Country { get; }
         public string Description { get; }
         public List<HistoryItem> AddedMovies { get; }
-        public int ID { get; }
+        public int ID { get; set; }
 
         public Profile(string name, string surname, string username, string email, string password, string birthday,
             string country, string description, List<HistoryItem> addedMovies, int id)
@@ -33,6 +35,15 @@ namespace ProjektProgramowanie.Models
             Description = description;
             AddedMovies = addedMovies;
             ID = id;
+        }
+
+        public void FillProfileHistory(Profile profil, ObservableCollection<ProfileHistoryViewModel> HistoryList)
+        {
+            profil.AddedMovies.Sort((x, y) => DateTime.Compare(DateTime.Parse(y.Date), DateTime.Parse(x.Date)));
+            foreach (HistoryItem movie in profil.AddedMovies)
+            {
+                HistoryList.Add(new ProfileHistoryViewModel(movie.MovieName, movie.Description, movie.Score, movie.Year, movie.Length, movie.Genre, movie.List, movie.Date));
+            }
         }
     }
 }

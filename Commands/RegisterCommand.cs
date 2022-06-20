@@ -96,7 +96,8 @@ namespace ProjektProgramowanie.Commands
                     int id_auth = RepositoryAuth.GetAllAuth().OrderByDescending(i => i.Id).First().Id;
                     var user = new User(id_auth, profil.Name, profil.Surname, profil.Description, correctBirthday, profil.Country);
                     if (RepositoryUser.AddUserToDB(user))
-                    {
+                    {;
+                        profil.ID = RepositoryUser.GetAllUsers().OrderByDescending(u => u.Id).First().Id;
                         _profileStore.CurrentProfile = profil;
                         _profileViewNavigationService.Navigate();
                         MessageBox.Show("Registration Successful :)", "Success", MessageBoxButton.OK, MessageBoxImage.Information);

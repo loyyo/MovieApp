@@ -69,7 +69,6 @@ namespace ProjektProgramowanie.Models
                 Profile profil = new Profile(u.Name, u.Last_Name, username, email, password, u.Birthday, u.Country, u.Description, userAddedMovies, u.Id);
                 _profiles.Add(profil);
             }
-
         }
     }
 }

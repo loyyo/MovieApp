@@ -30,6 +30,7 @@ namespace ProjektProgramowanie.ViewModels
             MoviesWatched = 0;
             MinutesWatched = 0;
             AverageRating = 0;
+
             int MoviesRated = 0;
             foreach (var movie in AddedMovies)
             {
@@ -38,13 +39,11 @@ namespace ProjektProgramowanie.ViewModels
                 if (movie.Score != 0) MoviesRated++;
                 AverageRating += movie.Score;
             }
+
             if (AverageRating > 0) AverageRating /= MoviesRated;
             HistoryList = new ObservableCollection<ProfileHistoryViewModel>();
-            AddedMovies.Sort((x, y) => DateTime.Compare(DateTime.Parse(y.Date), DateTime.Parse(x.Date)));
-            foreach (HistoryItem movie in AddedMovies)
-            {
-                HistoryList.Add(new ProfileHistoryViewModel(movie.MovieName, movie.Description, movie.Score, movie.Year, movie.Length, movie.Genre, movie.List, movie.Date));
-            }
+            
+            _profile.CurrentProfile.FillProfileHistory(_profile.CurrentProfile, HistoryList);
         }
 
         private readonly ProfileStore _profile;
