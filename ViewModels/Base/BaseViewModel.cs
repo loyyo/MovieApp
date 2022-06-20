@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektProgramowanie.ViewModels.Base
+namespace MovieApp.ViewModels.Base
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

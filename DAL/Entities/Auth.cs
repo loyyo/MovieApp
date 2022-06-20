@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektProgramowanie.DAL.Entities
+namespace MovieApp.DAL.Entities
 {
     internal class Auth
     {

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjektProgramowanie.Components
+namespace MovieApp.Components
 {
     /// <summary>
     /// Logika interakcji dla klasy BindablePasswordBox.xaml

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjektProgramowanie {
+namespace MovieApp {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

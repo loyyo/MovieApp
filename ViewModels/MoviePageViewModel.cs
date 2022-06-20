@@ -1,10 +1,10 @@
-﻿using ProjektProgramowanie.Commands;
-using ProjektProgramowanie.DAL.Entities;
-using ProjektProgramowanie.DAL.Repositories;
-using ProjektProgramowanie.Models;
-using ProjektProgramowanie.Services;
-using ProjektProgramowanie.Stores;
-using ProjektProgramowanie.ViewModels.Base;
+﻿using MovieApp.Commands;
+using MovieApp.DAL.Entities;
+using MovieApp.DAL.Repositories;
+using MovieApp.Models;
+using MovieApp.Services;
+using MovieApp.Stores;
+using MovieApp.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace ProjektProgramowanie.ViewModels
+namespace MovieApp.ViewModels
 {
     internal class MoviePageViewModel : BaseViewModel
     {

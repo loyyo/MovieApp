@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektProgramowanie.Models
+namespace MovieApp.Models
 {
     internal interface IMovie
     {

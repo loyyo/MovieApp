@@ -1,7 +1,7 @@
-﻿using ProjektProgramowanie.Models;
-using ProjektProgramowanie.Services;
-using ProjektProgramowanie.Stores;
-using ProjektProgramowanie.ViewModels;
+﻿using MovieApp.Models;
+using MovieApp.Services;
+using MovieApp.Stores;
+using MovieApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace ProjektProgramowanie
+namespace MovieApp
 {
     /// <summary>
     /// Interaction logic for App.xaml

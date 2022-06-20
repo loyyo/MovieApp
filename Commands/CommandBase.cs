@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace ProjektProgramowanie.Commands
+namespace MovieApp.Commands
 {
     internal abstract class CommandBase : ICommand
     {

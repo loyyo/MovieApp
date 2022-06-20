@@ -1,7 +1,7 @@
-﻿using ProjektProgramowanie.Models;
-using ProjektProgramowanie.Services;
-using ProjektProgramowanie.Stores;
-using ProjektProgramowanie.ViewModels;
+﻿using MovieApp.Models;
+using MovieApp.Services;
+using MovieApp.Stores;
+using MovieApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using static ProjektProgramowanie.Services.PasswordToHashConverter;
+using static MovieApp.Services.PasswordToHashConverter;
 
-namespace ProjektProgramowanie.Commands
+namespace MovieApp.Commands
 {
     internal class LoginCommand : CommandBase
     {

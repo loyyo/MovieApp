@@ -1,11 +1,11 @@
-﻿using ProjektProgramowanie.ViewModels.Base;
+﻿using MovieApp.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektProgramowanie.Stores
+namespace MovieApp.Stores
 {
     internal class NavigationStore
     {

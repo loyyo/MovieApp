@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Windows;
 
-namespace ProjektProgramowanie.Services
+namespace MovieApp.Services
 {
     internal class PasswordToHashConverter
     {

@@ -1,12 +1,12 @@
 ﻿using MySqlConnector;
-using ProjektProgramowanie.DAL.Entities;
+using MovieApp.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektProgramowanie.DAL.Repositories
+namespace MovieApp.DAL.Repositories
 {
     internal class RepositoryMovie
     {

@@ -1,5 +1,5 @@
-﻿using ProjektProgramowanie.DAL.Entities;
-using ProjektProgramowanie.DAL.Repositories;
+﻿using MovieApp.DAL.Entities;
+using MovieApp.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace ProjektProgramowanie.Models
+namespace MovieApp.Models
 {
     internal class MoviePage
     {

@@ -1,4 +1,4 @@
-﻿using ProjektProgramowanie.ViewModels;
+﻿using MovieApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektProgramowanie.Models
+namespace MovieApp.Models
 {
     internal class SearchMovies
     {

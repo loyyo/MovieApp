@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektProgramowanie.DAL
+namespace MovieApp.DAL
 {
     internal class DBConnection
     {

@@ -1,12 +1,12 @@
-﻿using ProjektProgramowanie.Stores;
-using ProjektProgramowanie.ViewModels.Base;
+﻿using MovieApp.Stores;
+using MovieApp.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektProgramowanie.ViewModels
+namespace MovieApp.ViewModels
 {
     internal class MainViewModel : BaseViewModel
     {

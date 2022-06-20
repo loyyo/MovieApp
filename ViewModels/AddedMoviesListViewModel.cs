@@ -1,8 +1,8 @@
-﻿using ProjektProgramowanie.Commands;
-using ProjektProgramowanie.Models;
-using ProjektProgramowanie.Services;
-using ProjektProgramowanie.Stores;
-using ProjektProgramowanie.ViewModels.Base;
+﻿using MovieApp.Commands;
+using MovieApp.Models;
+using MovieApp.Services;
+using MovieApp.Stores;
+using MovieApp.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace ProjektProgramowanie.ViewModels
+namespace MovieApp.ViewModels
 {
     internal class AddedMoviesListViewModel : BaseViewModel
     {

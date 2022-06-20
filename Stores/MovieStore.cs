@@ -1,12 +1,12 @@
-﻿using ProjektProgramowanie.Models;
-using ProjektProgramowanie.ViewModels;
+﻿using MovieApp.Models;
+using MovieApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektProgramowanie.Stores
+namespace MovieApp.Stores
 {
     internal class MovieStore
     {

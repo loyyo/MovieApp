@@ -1,4 +1,4 @@
-﻿using ProjektProgramowanie.ViewModels.Base;
+﻿using MovieApp.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjektProgramowanie.Views
+namespace MovieApp.Views
 {
     /// <summary>
     /// Logika interakcji dla klasy SearchMoviesListView.xaml
