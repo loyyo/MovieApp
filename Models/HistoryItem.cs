@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektProgramowanie.Models
 {
-    internal class HistoryItem
+    internal class HistoryItem : IMovie
     {
         public string MovieName { get; set; }
         public string Description { get; set; }

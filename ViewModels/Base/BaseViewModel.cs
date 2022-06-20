@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjektProgramowanie.ViewModels.Base
 {
-    public class BaseViewModel : INotifyPropertyChanged, IDisposable
+    public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
@@ -17,7 +17,5 @@ namespace ProjektProgramowanie.ViewModels.Base
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
-        public virtual void Dispose() { }
     }
 }

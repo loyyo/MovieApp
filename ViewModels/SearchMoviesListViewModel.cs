@@ -33,7 +33,7 @@ namespace ProjektProgramowanie.ViewModels
             AllMoviesList = new ObservableCollection<MovieItemViewModel>();
             foreach (MovieItem movie in _movies._moviesList.OrderByDescending(m => m.Rating))
             {
-                AllMoviesList.Add(new MovieItemViewModel(movie.MovieName, movie.Description, movie.Rating, movie.Year, movie.Length, movie.Genre, movie.Directors, movie.Writers));
+                AllMoviesList.Add(new MovieItemViewModel(movie.MovieName, movie.Description, movie.Rating, movie.Year, movie.Length, movie.Genre, movie.Directors, movie.Writers, movie.ID));
             }
             ComboBoxRatings = new ObservableCollection<string> { "Select", "(10) Masterpiece", "(9) Great", "(8) Very Good",
                 "(7) Good", "(6) Fine", "(5) Average", "(4) Bad", "(3) Very Bad", "(2) Horrible", "(1) Appalling" };
@@ -156,7 +156,7 @@ namespace ProjektProgramowanie.ViewModels
                         foreach (MovieItem movie in SearchedMovies.OrderByDescending(m => m.Rating))
                         {
                             AllMoviesList.Add(new MovieItemViewModel
-                                (movie.MovieName, movie.Description, movie.Rating, movie.Year, movie.Length, movie.Genre, movie.Directors, movie.Writers));
+                                (movie.MovieName, movie.Description, movie.Rating, movie.Year, movie.Length, movie.Genre, movie.Directors, movie.Writers, movie.ID));
                         }
 
                     }, argument => true);

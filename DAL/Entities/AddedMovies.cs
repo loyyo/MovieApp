@@ -13,7 +13,7 @@ namespace ProjektProgramowanie.DAL.Entities
         public int Id_user;
         public int Id_movie;
         public string Date;
-        public bool List;
+        public int List;
 
         public string ToInsert()
         {
@@ -26,7 +26,24 @@ namespace ProjektProgramowanie.DAL.Entities
             Id_user = int.Parse(reader["Id_user"].ToString());
             Id_movie = int.Parse(reader["Id_movie"].ToString());
             Date = reader["Date"].ToString();
-            List = bool.Parse(reader["List"].ToString());
+            List = bool.Parse(reader["List"].ToString()) ? 1 : 0;
+        }
+
+        public AddedMovies(int id_user, int id_movie, string date, int list)
+        {
+            Id_user=id_user;
+            Id_movie=id_movie;
+            Date = date;
+            List = list;
+        }
+
+        public AddedMovies(AddedMovies addedMovies)
+        {
+            Id = addedMovies.Id;
+            Id_user = addedMovies.Id_user;
+            Id_movie = addedMovies.Id_movie;
+            Date = addedMovies.Date;
+            List = addedMovies.List;
         }
     }
 }

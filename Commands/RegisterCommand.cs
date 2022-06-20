@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using static ProjektProgramowanie.Services.PasswordHashService;
+using static ProjektProgramowanie.Services.PasswordToHashConverter;
 
 namespace ProjektProgramowanie.Commands
 {

@@ -29,6 +29,23 @@ namespace ProjektProgramowanie.DAL.Entities
             Comment = reader["Comment"].ToString();
         }
 
+        public Review(int id_movie, int id_user, int rate)
+        {
+            Id_movie = id_movie;
+            Id_user = id_user;
+            Rate = rate;
+            Comment = string.Empty;
+        }
+
+        public Review(Review review)
+        {
+            Id = review.Id;
+            Id_movie=review.Id_movie;
+            Id_user=review.Id_user;
+            Rate = review.Rate;
+            Comment = review.Comment;
+        }
+
         public override string ToString()
         {
             return Rate.ToString();

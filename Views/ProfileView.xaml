@@ -157,7 +157,8 @@
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="7*"/>
-                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="3*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
                                     <Grid.RowDefinitions>
@@ -169,6 +170,7 @@
                                     <Grid Grid.Row="1">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="1.25*"/>
+                                            <ColumnDefinition Width="1*"/>
                                             <ColumnDefinition Width="1*"/>
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Grid.Column="0" FontSize="20" Text="Added: ">
@@ -191,9 +193,28 @@
                                                 </TextBlock.Style>
                                             </TextBlock>
                                         </TextBlock>
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <TextBlock
+                                               Text="Length: "
+                                               FontSize="20"
+                                               HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"/>
+                                            <TextBlock 
+                                                Text="{Binding Length}"
+                                                FontSize="20"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                />
+                                            <TextBlock 
+                                                Text="min"
+                                                FontSize="20"
+                                                Margin="5 0 0 0"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"/>
+                                        </StackPanel>
                                     </Grid>
                                 </Grid>
-                                <TextBlock Grid.Column="1"
+                                <TextBlock Grid.Column="2"
                                            FontSize="20"
                                            Text="{Binding Date}"
                                            VerticalAlignment="Center"

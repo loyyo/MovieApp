@@ -30,7 +30,7 @@ namespace ProjektProgramowanie.Models
                 string genre = genres.Where(g => g.Id == m.Id_genre).First().genre;
                 string director = directors.Where(d => d.Id == m.Id_director).First().director;
                 string writer = writers.Where(w => w.Id == m.Id_writer).First().writer;
-                MovieItem movie = new MovieItem(m.Title, m.Description, m.Rating, m.Year, m.Length, genre, director, writer);
+                MovieItem movie = new MovieItem(m.Title, m.Description, m.Rating, m.Year, m.Length, genre, director, writer, m.Id);
                 _moviesList.Add(movie);
             }
 
@@ -55,7 +55,7 @@ namespace ProjektProgramowanie.Models
                     string genre = genres.Where(g => g.Id == addm.Id_genre).First().genre;
 
                     string whichlist;
-                    if (add.List == false) whichlist = "PTW";
+                    if (add.List == 0) whichlist = "PTW";
                     else whichlist = "Watched";
 
                     int score;

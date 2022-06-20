@@ -59,9 +59,9 @@ namespace ProjektProgramowanie.ViewModels
             set { mItem.Writers = value; OnPropertyChanged(nameof(Writers)); }
         }
 
-        public MovieItemViewModel(string movieName, string description, float rating, string year, int length, string genre, string directors, string writers)
+        public MovieItemViewModel(string movieName, string description, float rating, string year, int length, string genre, string directors, string writers, int id)
         {
-            mItem = new MovieItem(movieName, description, rating, year, length, genre, directors, writers);
+            mItem = new MovieItem(movieName, description, rating, year, length, genre, directors, writers, id);
         }
     }
 }

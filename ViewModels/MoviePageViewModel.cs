@@ -1,4 +1,6 @@
 ﻿using ProjektProgramowanie.Commands;
+using ProjektProgramowanie.DAL.Entities;
+using ProjektProgramowanie.DAL.Repositories;
 using ProjektProgramowanie.Models;
 using ProjektProgramowanie.Services;
 using ProjektProgramowanie.Stores;
@@ -198,10 +200,17 @@ namespace ProjektProgramowanie.ViewModels
                 if (_deleteFromListCommand == null)
                     _deleteFromListCommand = new RelayCommand(argument =>
                     {
-                        _profile.CurrentProfile.AddedMovies.Remove(_profileMovie);
-                        //_users.Serialize(_users._profiles);
-                        MessageBox.Show("Movie successfully deleted from list", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                        DeleteEnabled = false;
+                        int idAddedMovie = RepositoryAddedMovies.GetAllAddedMovies().Where(i => i.Id_movie == _movie.Movie.ID).Where(i => i.Id_user == _profile.CurrentProfile.ID).First().Id;
+                        if (RepositoryAddedMovies.DeleteAddedMovieFromDB(idAddedMovie))
+                        {
+                            int idReview = RepositoryReview.GetAllReviews().Where(i => i.Id_movie == _movie.Movie.ID).Where(i => i.Id_user == _profile.CurrentProfile.ID).First().Id;
+                            if (RepositoryReview.DeleteReviewFromDB(idReview))
+                            {
+                                _profile.CurrentProfile.AddedMovies.Remove(_profileMovie);
+                                MessageBox.Show("Movie successfully deleted from list", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                                DeleteEnabled = false;
+                            }
+                        }
                     }, argument => true);
                 return _deleteFromListCommand;
             }
@@ -285,21 +294,43 @@ namespace ProjektProgramowanie.ViewModels
                 DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString()
                 );
 
+            int listInt = 0;
+            if (ListName == "Watched") listInt = 1;
+            string[] splitDate = historyItem.Date.Split(" ");
+            string[] shortDate = splitDate[0].Split(".");
+            string correctDate = shortDate[2] + "-" + shortDate[1] + "-" + shortDate[0] + " " + splitDate[1];
+
             if (!_profile.CurrentProfile.AddedMovies.Contains(_profileMovie))
             {
-                _profile.CurrentProfile.AddedMovies.Add(historyItem);
-                //_users.Serialize(_users._profiles);
-                MessageBox.Show("Movie successfully added", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                GoToProfileView.Execute(this);
+                AddedMovies addedMovie = new AddedMovies(_profile.CurrentProfile.ID, _movie.Movie.ID, correctDate, listInt);
+                if (RepositoryAddedMovies.AddAddedMovieToDB(addedMovie))
+                {
+                    Review review = new Review(_movie.Movie.ID, _profile.CurrentProfile.ID, YourScore);
+                    if (RepositoryReview.AddReviewToDB(review))
+                    {
+                        _profile.CurrentProfile.AddedMovies.Add(historyItem);
+                        MessageBox.Show("Movie successfully added", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        GoToProfileView.Execute(this);
+                    }
+                }
             }
 
             else if (_profile.CurrentProfile.AddedMovies.Contains(_profileMovie))
             {
-                _profile.CurrentProfile.AddedMovies.Remove(_profileMovie);
-                _profile.CurrentProfile.AddedMovies.Add(historyItem);
-                //_users.Serialize(_users._profiles);
-                MessageBox.Show("Score successfully changed", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                GoToProfileView.Execute(this);
+                AddedMovies addedMovie = new AddedMovies(_profile.CurrentProfile.ID, _movie.Movie.ID, correctDate, listInt);
+                int idAddedMovie = RepositoryAddedMovies.GetAllAddedMovies().Where(i => i.Id_movie == _movie.Movie.ID).Where(i => i.Id_user == _profile.CurrentProfile.ID).First().Id;
+                if (RepositoryAddedMovies.EditAddedMovieInDB(addedMovie, idAddedMovie))
+                {
+                    Review review = new Review(_movie.Movie.ID, _profile.CurrentProfile.ID, YourScore);
+                    int idReview = RepositoryReview.GetAllReviews().Where(i => i.Id_movie == _movie.Movie.ID).Where(i => i.Id_user == _profile.CurrentProfile.ID).First().Id;
+                    if (RepositoryReview.EditReviewInDB(review, idReview))
+                    {
+                        _profile.CurrentProfile.AddedMovies.Remove(_profileMovie);
+                        _profile.CurrentProfile.AddedMovies.Add(historyItem);
+                        MessageBox.Show("Score successfully changed", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        GoToProfileView.Execute(this);
+                    }
+                }
             }
         }
     }

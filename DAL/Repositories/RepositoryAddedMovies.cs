@@ -44,21 +44,38 @@ namespace ProjektProgramowanie.DAL.Repositories
             return state;
         }
 
-        ////////// TODO:
+        public static bool DeleteAddedMovieFromDB(int addedMovieID)
+        {
+            bool state = false;
+            using (var connection = DBConnection.Instance.Connection)
+            {
+                string DELETE_ADDEDMOVIE = $"DELETE FROM addedmovies WHERE Id={addedMovieID}";
 
-        //public static bool DeleteAddedMovieFromDB(AddedMovies addedMovie)
-        //{
-        //    bool state = false;
-        //    using (var connection = DBConnection.Instance.Connection)
-        //    {
-        //        MySqlCommand command = new MySqlCommand($"{ADD_ADDEDMOVIE} {addedMovie.ToInsert()}", connection);
-        //        connection.Open();
-        //        var id = command.ExecuteNonQuery();
-        //        state = true;
-        //        addedMovie.Id = (sbyte)command.LastInsertedId;
-        //        connection.Close();
-        //    }
-        //    return state;
-        //}
+                MySqlCommand command = new MySqlCommand(DELETE_ADDEDMOVIE, connection);
+                connection.Open();
+                var n = command.ExecuteNonQuery();
+                if (n == 1) state = true;
+                connection.Close();
+            }
+            return state;
+        }
+
+        public static bool EditAddedMovieInDB(AddedMovies addedMovie, int addedMovieID)
+        {
+            bool state = false;
+            using (var connection = DBConnection.Instance.Connection)
+            {
+                string EDIT_ADDEDMOVIE = $"UPDATE addedmovies SET Id_user={addedMovie.Id_user}, Id_movie={addedMovie.Id_movie}, " +
+                    $"Date='{addedMovie.Date}', List={addedMovie.List} WHERE Id={addedMovieID}";
+
+                MySqlCommand command = new MySqlCommand(EDIT_ADDEDMOVIE, connection);
+                connection.Open();
+                var n = command.ExecuteNonQuery();
+                if (n == 1) state = true;
+
+                connection.Close();
+            }
+            return state;
+        }
     }
 }

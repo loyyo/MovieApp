@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektProgramowanie.Models
 {
-    internal class MovieItem
+    internal class MovieItem : IMovie
     {
         public string MovieName { get; set; }
         public string Description { get; set; }
@@ -16,8 +16,9 @@ namespace ProjektProgramowanie.Models
         public string Genre { get; set; }
         public string Directors { get; set; }
         public string Writers { get; set; }
+        public int ID { get; set; }
 
-        public MovieItem(string movieName, string description, float rating, string year, int length, string genre, string directors, string writers)
+        public MovieItem(string movieName, string description, float rating, string year, int length, string genre, string directors, string writers, int id)
         {
             MovieName = movieName;
             Description = description;
@@ -27,6 +28,7 @@ namespace ProjektProgramowanie.Models
             Genre = genre;
             Directors = directors;
             Writers = writers;
+            ID = id;
         }
 
         public override string ToString()

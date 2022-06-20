@@ -44,21 +44,39 @@ namespace ProjektProgramowanie.DAL.Repositories
             return state;
         }
 
-        ////////// TODO:
-        
-        //public static bool DeleteReviewFromDB(Review review)
-        //{
-        //    bool state = false;
-        //    using (var connection = DBConnection.Instance.Connection)
-        //    {
-        //        MySqlCommand command = new MySqlCommand($"{ADD_REVIEW} {review.ToInsert()}", connection);
-        //        connection.Open();
-        //        var id = command.ExecuteNonQuery();
-        //        state = true;
-        //        review.Id = (sbyte)command.LastInsertedId;
-        //        connection.Close();
-        //    }
-        //    return state;
-        //}
+        public static bool DeleteReviewFromDB(int reviewID)
+        {
+            bool state = false;
+            using (var connection = DBConnection.Instance.Connection)
+            {
+                string EDIT_REVIEW = $"DELETE FROM review WHERE Id={reviewID}";
+
+                MySqlCommand command = new MySqlCommand(EDIT_REVIEW, connection);
+                connection.Open();
+                var n = command.ExecuteNonQuery();
+                if (n == 1) state = true;
+
+                connection.Close();
+            }
+            return state;
+        }
+
+        public static bool EditReviewInDB(Review review, int reviewID)
+        {
+            bool state = false;
+            using (var connection = DBConnection.Instance.Connection)
+            {
+                string EDIT_REVIEW = $"UPDATE review SET Id_movie={review.Id_movie}, Id_user={review.Id_user}, " +
+                    $"Rate={review.Rate} WHERE Id={reviewID}";
+
+                MySqlCommand command = new MySqlCommand(EDIT_REVIEW, connection);
+                connection.Open();
+                var n = command.ExecuteNonQuery();
+                if (n == 1) state = true;
+
+                connection.Close();
+            }
+            return state;
+        }
     }
 }

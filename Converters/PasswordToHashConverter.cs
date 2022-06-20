@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace ProjektProgramowanie.Services
 {
-    internal class PasswordHashService
+    internal class PasswordToHashConverter
     {
         public static class SecurePasswordHasher
         {
